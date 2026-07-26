@@ -484,12 +484,12 @@ export function SpecializationsSection({
           {current.map((spec) => (
             <div
               key={spec}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-4 shadow-sm sm:gap-4 sm:px-5 sm:py-5"
+              className="group flex cursor-pointer items-center gap-3 rounded-2xl border border-border bg-card px-4 py-4 shadow-sm transition-colors duration-300 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground sm:gap-4 sm:px-5 sm:py-5"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-background ring-1 ring-border text-primary sm:h-12 sm:w-12">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-background text-primary ring-1 ring-border transition-colors group-hover:bg-primary-foreground group-hover:text-primary group-active:bg-primary-foreground group-active:text-primary sm:h-12 sm:w-12">
                 <Briefcase className="h-5 w-5" />
               </span>
-              <h3 className="text-sm font-semibold leading-snug text-foreground sm:text-base lg:text-lg">
+              <h3 className="text-sm font-semibold leading-snug text-foreground transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground sm:text-base lg:text-lg">
                 {spec}
               </h3>
             </div>
