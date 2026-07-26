@@ -27,8 +27,10 @@ import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as StudentReviewsRouteImport } from './routes/student-reviews'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -123,6 +125,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudentReviewsRoute = StudentReviewsRouteImport.update({
+  id: '/student-reviews',
+  path: '/student-reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsConditionsRoute = TermsConditionsRouteImport.update({
   id: '/terms-conditions',
   path: '/terms-conditions',
@@ -131,6 +138,11 @@ const TermsConditionsRoute = TermsConditionsRouteImport.update({
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
@@ -158,7 +170,9 @@ export interface FileRoutesByFullPath {
   '/fees': typeof FeesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-reviews': typeof StudentReviewsRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -181,7 +195,9 @@ export interface FileRoutesByTo {
   '/fees': typeof FeesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-reviews': typeof StudentReviewsRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/blog': typeof BlogIndexRoute
 }
@@ -205,7 +221,9 @@ export interface FileRoutesById {
   '/fees': typeof FeesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-reviews': typeof StudentReviewsRoute
   '/terms-conditions': typeof TermsConditionsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/blog/': typeof BlogIndexRoute
 }
@@ -230,7 +248,9 @@ export interface FileRouteTypes {
     | '/fees'
     | '/privacy-policy'
     | '/sitemap.xml'
+    | '/student-reviews'
     | '/terms-conditions'
+    | '/blog/$slug'
     | '/courses/$slug'
     | '/blog/'
   fileRoutesByTo: FileRoutesByTo
@@ -253,7 +273,9 @@ export interface FileRouteTypes {
     | '/fees'
     | '/privacy-policy'
     | '/sitemap.xml'
+    | '/student-reviews'
     | '/terms-conditions'
+    | '/blog/$slug'
     | '/courses/$slug'
     | '/blog'
   id:
@@ -276,7 +298,9 @@ export interface FileRouteTypes {
     | '/fees'
     | '/privacy-policy'
     | '/sitemap.xml'
+    | '/student-reviews'
     | '/terms-conditions'
+    | '/blog/$slug'
     | '/courses/$slug'
     | '/blog/'
   fileRoutesById: FileRoutesById
@@ -300,7 +324,9 @@ export interface RootRouteChildren {
   FeesRoute: typeof FeesRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StudentReviewsRoute: typeof StudentReviewsRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CoursesSlugRoute: typeof CoursesSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
@@ -433,6 +459,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/student-reviews': {
+      id: '/student-reviews'
+      path: '/student-reviews'
+      fullPath: '/student-reviews'
+      preLoaderRoute: typeof StudentReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms-conditions': {
       id: '/terms-conditions'
       path: '/terms-conditions'
@@ -445,6 +478,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/$slug': {
@@ -477,7 +517,9 @@ const rootRouteChildren: RootRouteChildren = {
   FeesRoute: FeesRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StudentReviewsRoute: StudentReviewsRoute,
   TermsConditionsRoute: TermsConditionsRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CoursesSlugRoute: CoursesSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
