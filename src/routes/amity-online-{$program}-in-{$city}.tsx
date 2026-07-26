@@ -10,7 +10,7 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { findCourse, amity, seoCities } from "@/lib/amity";
+import { findCourse, amity, seoCities, isValidCityCourseCombo } from "@/lib/amity";
 import { BadgeCheck, ChevronRight, MapPin } from "lucide-react";
 
 const canonicalFor = (program: string, city: string) =>
@@ -18,6 +18,7 @@ const canonicalFor = (program: string, city: string) =>
 
 export const Route = createFileRoute("/amity-online-{$program}-in-{$city}")({
   loader: ({ params }) => {
+    if (!isValidCityCourseCombo(params.program, params.city)) throw notFound();
     const course = findCourse(params.program);
     const city = seoCities.find((c) => c.slug === params.city.toLowerCase());
     if (!course || !city) throw notFound();

@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { amity } from "@/lib/amity";
 import amityLogo from "@/assets/amity-logo.jpg.asset.json";
+import aveduLogoAsset from "@/assets/avedu-logo.jpg.asset.json";
 import {
   Flame,
   X,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 export const LOGO_SRC = amityLogo.url;
+export const AVEDU_LOGO_SRC = aveduLogoAsset.url;
 
 /* ---------------- Modal singleton ---------------- */
 
