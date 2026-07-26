@@ -238,9 +238,9 @@ function CoursePage() {
 
               <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
                 {activeSem?.subjects.map((s) => (
-                  <div key={s} className="flex items-start gap-3 rounded-lg border border-border bg-background p-4">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-sm font-medium text-foreground">{s}</span>
+                  <div key={s} className="group flex cursor-pointer items-start gap-3 rounded-lg border border-border bg-background p-4 transition-colors duration-300 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground" />
+                    <span className="text-sm font-medium text-foreground transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground">{s}</span>
                   </div>
                 ))}
               </div>
