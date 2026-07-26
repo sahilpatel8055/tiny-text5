@@ -21,6 +21,7 @@ import { Route as AmityOnlineChar123programChar125InChar123cityChar125RouteImpor
 import { Route as AmityOnlineScholarshipRouteImport } from './routes/amity-online-scholarship'
 import { Route as AmityOnlineReviewRouteImport } from './routes/amity-online-review'
 import { Route as AmityOnlinePlacementRouteImport } from './routes/amity-online-placement'
+import { Route as AmityOnlineFeesYearRouteImport } from './routes/amity-online-fees-$year'
 import { Route as AmityOnlineFeesRouteImport } from './routes/amity-online-fees'
 import { Route as AmityOnlineEligibilityRouteImport } from './routes/amity-online-eligibility'
 import { Route as AmityOnlineCoursesRouteImport } from './routes/amity-online-courses'
@@ -90,6 +91,11 @@ const AmityOnlinePlacementRoute = AmityOnlinePlacementRouteImport.update({
   path: '/amity-online-placement',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AmityOnlineFeesYearRoute = AmityOnlineFeesYearRouteImport.update({
+  id: '/amity-online-fees-$year',
+  path: '/amity-online-fees-$year',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AmityOnlineFeesRoute = AmityOnlineFeesRouteImport.update({
   id: '/amity-online-fees',
   path: '/amity-online-fees',
@@ -134,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/amity-online-courses': typeof AmityOnlineCoursesRoute
   '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
   '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-fees-$year': typeof AmityOnlineFeesYearRoute
   '/amity-online-placement': typeof AmityOnlinePlacementRoute
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
@@ -155,6 +162,7 @@ export interface FileRoutesByTo {
   '/amity-online-courses': typeof AmityOnlineCoursesRoute
   '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
   '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-fees-$year': typeof AmityOnlineFeesYearRoute
   '/amity-online-placement': typeof AmityOnlinePlacementRoute
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   '/amity-online-courses': typeof AmityOnlineCoursesRoute
   '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
   '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-fees-$year': typeof AmityOnlineFeesYearRoute
   '/amity-online-placement': typeof AmityOnlinePlacementRoute
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
     | '/amity-online-courses'
     | '/amity-online-eligibility'
     | '/amity-online-fees'
+    | '/amity-online-fees-$year'
     | '/amity-online-placement'
     | '/amity-online-review'
     | '/amity-online-scholarship'
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
     | '/amity-online-courses'
     | '/amity-online-eligibility'
     | '/amity-online-fees'
+    | '/amity-online-fees-$year'
     | '/amity-online-placement'
     | '/amity-online-review'
     | '/amity-online-scholarship'
@@ -242,6 +253,7 @@ export interface FileRouteTypes {
     | '/amity-online-courses'
     | '/amity-online-eligibility'
     | '/amity-online-fees'
+    | '/amity-online-fees-$year'
     | '/amity-online-placement'
     | '/amity-online-review'
     | '/amity-online-scholarship'
@@ -264,6 +276,7 @@ export interface RootRouteChildren {
   AmityOnlineCoursesRoute: typeof AmityOnlineCoursesRoute
   AmityOnlineEligibilityRoute: typeof AmityOnlineEligibilityRoute
   AmityOnlineFeesRoute: typeof AmityOnlineFeesRoute
+  AmityOnlineFeesYearRoute: typeof AmityOnlineFeesYearRoute
   AmityOnlinePlacementRoute: typeof AmityOnlinePlacementRoute
   AmityOnlineReviewRoute: typeof AmityOnlineReviewRoute
   AmityOnlineScholarshipRoute: typeof AmityOnlineScholarshipRoute
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AmityOnlinePlacementRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/amity-online-fees-$year': {
+      id: '/amity-online-fees-$year'
+      path: '/amity-online-fees-$year'
+      fullPath: '/amity-online-fees-$year'
+      preLoaderRoute: typeof AmityOnlineFeesYearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/amity-online-fees': {
       id: '/amity-online-fees'
       path: '/amity-online-fees'
@@ -424,6 +444,7 @@ const rootRouteChildren: RootRouteChildren = {
   AmityOnlineCoursesRoute: AmityOnlineCoursesRoute,
   AmityOnlineEligibilityRoute: AmityOnlineEligibilityRoute,
   AmityOnlineFeesRoute: AmityOnlineFeesRoute,
+  AmityOnlineFeesYearRoute: AmityOnlineFeesYearRoute,
   AmityOnlinePlacementRoute: AmityOnlinePlacementRoute,
   AmityOnlineReviewRoute: AmityOnlineReviewRoute,
   AmityOnlineScholarshipRoute: AmityOnlineScholarshipRoute,
@@ -442,3 +463,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
