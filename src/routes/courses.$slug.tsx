@@ -127,12 +127,28 @@ function formatINR(n: number): string {
 }
 
 const advantages = [
-  { number: "1", title: "Flexibility:", desc: "Amity Online offers a flexible learning environment suitable for working professionals and homemakers." },
-  { number: "2", title: "Quality Education:", desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends." },
-  { number: "3", title: "24×7 LMS Access:", desc: "Get unlimited 24×7 access to the Amrita Learning Management System so you can study anytime, anywhere. All your course materials, recorded lectures, and assignments are just a click away." },
-  { number: "4", title: "1-on-1 Mentorship:", desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster." },
-  { number: "5", title: "Career Support:", desc: "Dedicated career services with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities." },
+  {
+    number: "1",
+    title: "Never Study Alone.",
+    desc: "Prof. AMI 3.0 guides you through assignments, clears doubts instantly and keeps you on track — anytime, anywhere.",
+  },
+  {
+    number: "2",
+    title: "Live Industry Projects. Real Impact.",
+    desc: "Solve real business challenges with industry experts. Earn project certifications and build a recruiter-ready portfolio before you graduate.",
+  },
+  {
+    number: "3",
+    title: "Pan-India Campus Access & Offline Events.",
+    desc: "Attend orientations, meetups and convocation across Amity campuses — combining digital flexibility with real-world community.",
+  },
+  {
+    number: "4",
+    title: "AI & Industry Certifications.",
+    desc: "Earn in-demand credentials to strengthen your CV from day one. Boost your skills with Certification in AI — embedded into your degree.",
+  },
 ];
+
 
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: Course };

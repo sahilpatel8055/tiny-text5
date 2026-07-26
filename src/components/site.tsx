@@ -204,12 +204,12 @@ export function LeadFormCompact() {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:h-24 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Amity Online — India's No. #1 Online University"
-            className="h-10 w-auto sm:h-14"
+            className="h-14 w-auto sm:h-20"
           />
         </Link>
         <button
@@ -224,11 +224,13 @@ export function SiteHeader() {
   );
 }
 
+
 /* ---------------- Sticky Action Bar ---------------- */
 
-const CALL_TEL = "tel:18000000000";
-const WA_LINK = "https://wa.me/919999999999";
-export { CALL_TEL };
+const CALL_TEL = "tel:+917338387093";
+const WA_LINK = "https://wa.me/917338387093";
+const CALL_DISPLAY = "+91 733 838 7093";
+export { CALL_TEL, WA_LINK, CALL_DISPLAY };
 
 export function StickyActionBar() {
   return (
@@ -243,7 +245,7 @@ export function StickyActionBar() {
         <button
           type="button"
           onClick={openModal}
-          className="inline-flex items-center gap-2 rounded-full bg-[#f97316] px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg transition hover:opacity-90"
         >
           <PhoneCall className="h-4 w-4" /> Request Callback
         </button>
@@ -277,7 +279,7 @@ export function StickyActionBar() {
         <button
           type="button"
           onClick={openModal}
-          className="flex flex-col items-center justify-center gap-0.5 py-2.5 text-xs font-semibold text-[#ea580c]"
+          className="flex flex-col items-center justify-center gap-0.5 py-2.5 text-xs font-semibold text-primary"
         >
           <PhoneCall className="h-5 w-5" />
           Callback
@@ -288,6 +290,7 @@ export function StickyActionBar() {
     </>
   );
 }
+
 
 /* ---------------- Footer ---------------- */
 
@@ -337,13 +340,18 @@ export function SiteFooter() {
           <div>
             <p className="text-sm font-bold text-foreground">Talk to us</p>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li className="inline-flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" /> 1800-000-000
+              <li>
+                <a href={CALL_TEL} className="inline-flex items-center gap-2 hover:text-primary">
+                  <Phone className="h-4 w-4 text-primary" /> {CALL_DISPLAY}
+                </a>
               </li>
-              <li className="inline-flex items-center gap-2">
-                <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp counseling
+              <li>
+                <a href={WA_LINK} target="_blank" rel="noopener" className="inline-flex items-center gap-2 hover:text-primary">
+                  <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp {CALL_DISPLAY}
+                </a>
               </li>
             </ul>
+
           </div>
         </div>
         <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-4 text-xs text-muted-foreground">
@@ -373,13 +381,16 @@ export function SiteFooter() {
 import placementImage from "@/assets/placement.jpg";
 
 const careerItems = [
-  { title: "AI-Powered Resume Builder", desc: "Instantly create professional resumes tailored to your profile using AI." },
-  { title: "Mock Video Interview", desc: "Practice real-time interview scenarios to boost your confidence." },
-  { title: "Personality Test", desc: "Understand your strengths and traits with an insightful personality assessment." },
-  { title: "Aptitude Test Training", desc: "Sharpen your reasoning and problem-solving skills with expert-guided prep." },
-  { title: "Skills Enhancement", desc: "Improve industry-relevant skills through targeted training programs." },
-  { title: "Job Openings", desc: "Explore curated job opportunities across top companies and sectors." },
+  { title: "AI-Powered Resume Builder", desc: "Building AI-powered resumes tailored to industry standards." },
+  { title: "Relevant Job Mapping via AI Tools", desc: "Mapping relevant job opportunities using AI-driven insights." },
+  { title: "Human-AI Personality Assessment", desc: "Assessing personality traits to recommend ideal career paths." },
+  { title: "Mock Video Interview", desc: "Simulating real job interviews to boost confidence and performance." },
+  { title: "Skill Analysis", desc: "Analysing skills to identify strengths and improvement areas." },
+  { title: "Personality Test", desc: "Understanding work styles through in-depth personality tests." },
+  { title: "Application Tracker", desc: "Tracking job applications efficiently in one place." },
+  { title: "Code Quest", desc: "Offering coding challenges and assessments to sharpen technical skills." },
 ];
+
 
 export function CareerAssistance() {
   return (
