@@ -417,13 +417,13 @@ export function CareerAssistance() {
             {careerItems.map((it) => (
               <div
                 key={it.title}
-                className="group rounded-2xl border border-border bg-card p-5 transition-colors duration-300 hover:bg-primary hover:text-primary-foreground"
+                className="group cursor-pointer rounded-2xl border border-border bg-card p-5 transition-colors duration-300 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground"
               >
                 <div className="flex items-center gap-3">
-                  <Star className="h-6 w-6 text-primary transition-colors group-hover:text-primary-foreground" />
+                  <Star className="h-6 w-6 text-primary transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground" />
                   <h3 className="text-lg font-semibold">{it.title}</h3>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground transition-colors group-hover:text-primary-foreground/90">
+                <p className="mt-2 text-sm text-muted-foreground transition-colors group-hover:text-primary-foreground/90 group-active:text-primary-foreground/90">
                   {it.desc}
                 </p>
               </div>
