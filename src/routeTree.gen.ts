@@ -9,106 +9,35 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as FeesRouteImport } from './routes/fees'
-import { Route as DisclaimerRouteImport } from './routes/disclaimer'
-import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
-import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
-import { Route as AmityVsCompetitorRouteImport } from './routes/amity-vs-$competitor'
-import { Route as AmityOnlineChar123programChar125InChar123cityChar125RouteImport } from './routes/amity-online-{$program}-in-{$city}'
-import { Route as AmityOnlineScholarshipRouteImport } from './routes/amity-online-scholarship'
-import { Route as AmityOnlineReviewRouteImport } from './routes/amity-online-review'
-import { Route as AmityOnlinePlacementRouteImport } from './routes/amity-online-placement'
-import { Route as AmityOnlineFeesYearRouteImport } from './routes/amity-online-fees-$year'
-import { Route as AmityOnlineFeesRouteImport } from './routes/amity-online-fees'
-import { Route as AmityOnlineEligibilityRouteImport } from './routes/amity-online-eligibility'
-import { Route as AmityOnlineCoursesRouteImport } from './routes/amity-online-courses'
-import { Route as AmityOnlineAdmissionLastDateRouteImport } from './routes/amity-online-admission-last-date'
-import { Route as AmityOnlineAdmissionRouteImport } from './routes/amity-online-admission'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AmityOnlineAdmissionRouteImport } from './routes/amity-online-admission'
+import { Route as AmityOnlineAdmissionLastDateRouteImport } from './routes/amity-online-admission-last-date'
+import { Route as AmityOnlineCoursesRouteImport } from './routes/amity-online-courses'
+import { Route as AmityOnlineEligibilityRouteImport } from './routes/amity-online-eligibility'
+import { Route as AmityOnlineFeesRouteImport } from './routes/amity-online-fees'
+import { Route as AmityOnlineFeesYearRouteImport } from './routes/amity-online-fees-$year'
+import { Route as AmityOnlinePlacementRouteImport } from './routes/amity-online-placement'
+import { Route as AmityOnlineReviewRouteImport } from './routes/amity-online-review'
+import { Route as AmityOnlineScholarshipRouteImport } from './routes/amity-online-scholarship'
+import { Route as AmityOnlineChar123programChar125InChar123cityChar125RouteImport } from './routes/amity-online-{$program}-in-{$city}'
+import { Route as AmityVsCompetitorRouteImport } from './routes/amity-vs-$competitor'
+import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
+import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
-const TermsConditionsRoute = TermsConditionsRouteImport.update({
-  id: '/terms-conditions',
-  path: '/terms-conditions',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeesRoute = FeesRouteImport.update({
-  id: '/fees',
-  path: '/fees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DisclaimerRoute = DisclaimerRouteImport.update({
-  id: '/disclaimer',
-  path: '/disclaimer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
-  id: '/compare-universities',
-  path: '/compare-universities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
-  id: '/best-online-$program',
-  path: '/best-online-$program',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityVsCompetitorRoute = AmityVsCompetitorRouteImport.update({
-  id: '/amity-vs-$competitor',
-  path: '/amity-vs-$competitor',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineChar123programChar125InChar123cityChar125Route =
-  AmityOnlineChar123programChar125InChar123cityChar125RouteImport.update({
-    id: '/amity-online-{$program}-in-{$city}',
-    path: '/amity-online-{$program}-in-{$city}',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const AmityOnlineScholarshipRoute = AmityOnlineScholarshipRouteImport.update({
-  id: '/amity-online-scholarship',
-  path: '/amity-online-scholarship',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineReviewRoute = AmityOnlineReviewRouteImport.update({
-  id: '/amity-online-review',
-  path: '/amity-online-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlinePlacementRoute = AmityOnlinePlacementRouteImport.update({
-  id: '/amity-online-placement',
-  path: '/amity-online-placement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineFeesYearRoute = AmityOnlineFeesYearRouteImport.update({
-  id: '/amity-online-fees-$year',
-  path: '/amity-online-fees-$year',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineFeesRoute = AmityOnlineFeesRouteImport.update({
-  id: '/amity-online-fees',
-  path: '/amity-online-fees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineEligibilityRoute = AmityOnlineEligibilityRouteImport.update({
-  id: '/amity-online-eligibility',
-  path: '/amity-online-eligibility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AmityOnlineCoursesRoute = AmityOnlineCoursesRouteImport.update({
-  id: '/amity-online-courses',
-  path: '/amity-online-courses',
+const AmityOnlineAdmissionRoute = AmityOnlineAdmissionRouteImport.update({
+  id: '/amity-online-admission',
+  path: '/amity-online-admission',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AmityOnlineAdmissionLastDateRoute =
@@ -117,14 +46,85 @@ const AmityOnlineAdmissionLastDateRoute =
     path: '/amity-online-admission-last-date',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AmityOnlineAdmissionRoute = AmityOnlineAdmissionRouteImport.update({
-  id: '/amity-online-admission',
-  path: '/amity-online-admission',
+const AmityOnlineCoursesRoute = AmityOnlineCoursesRouteImport.update({
+  id: '/amity-online-courses',
+  path: '/amity-online-courses',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AmityOnlineEligibilityRoute = AmityOnlineEligibilityRouteImport.update({
+  id: '/amity-online-eligibility',
+  path: '/amity-online-eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineFeesRoute = AmityOnlineFeesRouteImport.update({
+  id: '/amity-online-fees',
+  path: '/amity-online-fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineFeesYearRoute = AmityOnlineFeesYearRouteImport.update({
+  id: '/amity-online-fees-$year',
+  path: '/amity-online-fees-$year',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlinePlacementRoute = AmityOnlinePlacementRouteImport.update({
+  id: '/amity-online-placement',
+  path: '/amity-online-placement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineReviewRoute = AmityOnlineReviewRouteImport.update({
+  id: '/amity-online-review',
+  path: '/amity-online-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineScholarshipRoute = AmityOnlineScholarshipRouteImport.update({
+  id: '/amity-online-scholarship',
+  path: '/amity-online-scholarship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineChar123programChar125InChar123cityChar125Route =
+  AmityOnlineChar123programChar125InChar123cityChar125RouteImport.update({
+    id: '/amity-online-{$program}-in-{$city}',
+    path: '/amity-online-{$program}-in-{$city}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AmityVsCompetitorRoute = AmityVsCompetitorRouteImport.update({
+  id: '/amity-vs-$competitor',
+  path: '/amity-vs-$competitor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
+  id: '/best-online-$program',
+  path: '/best-online-$program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
+  id: '/compare-universities',
+  path: '/compare-universities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
@@ -294,123 +294,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/terms-conditions': {
-      id: '/terms-conditions'
-      path: '/terms-conditions'
-      fullPath: '/terms-conditions'
-      preLoaderRoute: typeof TermsConditionsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fees': {
-      id: '/fees'
-      path: '/fees'
-      fullPath: '/fees'
-      preLoaderRoute: typeof FeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/disclaimer': {
-      id: '/disclaimer'
-      path: '/disclaimer'
-      fullPath: '/disclaimer'
-      preLoaderRoute: typeof DisclaimerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/compare-universities': {
-      id: '/compare-universities'
-      path: '/compare-universities'
-      fullPath: '/compare-universities'
-      preLoaderRoute: typeof CompareUniversitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/best-online-$program': {
-      id: '/best-online-$program'
-      path: '/best-online-$program'
-      fullPath: '/best-online-$program'
-      preLoaderRoute: typeof BestOnlineProgramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-vs-$competitor': {
-      id: '/amity-vs-$competitor'
-      path: '/amity-vs-$competitor'
-      fullPath: '/amity-vs-$competitor'
-      preLoaderRoute: typeof AmityVsCompetitorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-{$program}-in-{$city}': {
-      id: '/amity-online-{$program}-in-{$city}'
-      path: '/amity-online-{$program}-in-{$city}'
-      fullPath: '/amity-online-{$program}-in-{$city}'
-      preLoaderRoute: typeof AmityOnlineChar123programChar125InChar123cityChar125RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-scholarship': {
-      id: '/amity-online-scholarship'
-      path: '/amity-online-scholarship'
-      fullPath: '/amity-online-scholarship'
-      preLoaderRoute: typeof AmityOnlineScholarshipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-review': {
-      id: '/amity-online-review'
-      path: '/amity-online-review'
-      fullPath: '/amity-online-review'
-      preLoaderRoute: typeof AmityOnlineReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-placement': {
-      id: '/amity-online-placement'
-      path: '/amity-online-placement'
-      fullPath: '/amity-online-placement'
-      preLoaderRoute: typeof AmityOnlinePlacementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-fees-$year': {
-      id: '/amity-online-fees-$year'
-      path: '/amity-online-fees-$year'
-      fullPath: '/amity-online-fees-$year'
-      preLoaderRoute: typeof AmityOnlineFeesYearRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-fees': {
-      id: '/amity-online-fees'
-      path: '/amity-online-fees'
-      fullPath: '/amity-online-fees'
-      preLoaderRoute: typeof AmityOnlineFeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-eligibility': {
-      id: '/amity-online-eligibility'
-      path: '/amity-online-eligibility'
-      fullPath: '/amity-online-eligibility'
-      preLoaderRoute: typeof AmityOnlineEligibilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-courses': {
-      id: '/amity-online-courses'
-      path: '/amity-online-courses'
-      fullPath: '/amity-online-courses'
-      preLoaderRoute: typeof AmityOnlineCoursesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/amity-online-admission-last-date': {
-      id: '/amity-online-admission-last-date'
-      path: '/amity-online-admission-last-date'
-      fullPath: '/amity-online-admission-last-date'
-      preLoaderRoute: typeof AmityOnlineAdmissionLastDateRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/amity-online-admission': {
@@ -420,11 +308,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AmityOnlineAdmissionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/amity-online-admission-last-date': {
+      id: '/amity-online-admission-last-date'
+      path: '/amity-online-admission-last-date'
+      fullPath: '/amity-online-admission-last-date'
+      preLoaderRoute: typeof AmityOnlineAdmissionLastDateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-courses': {
+      id: '/amity-online-courses'
+      path: '/amity-online-courses'
+      fullPath: '/amity-online-courses'
+      preLoaderRoute: typeof AmityOnlineCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-eligibility': {
+      id: '/amity-online-eligibility'
+      path: '/amity-online-eligibility'
+      fullPath: '/amity-online-eligibility'
+      preLoaderRoute: typeof AmityOnlineEligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-fees': {
+      id: '/amity-online-fees'
+      path: '/amity-online-fees'
+      fullPath: '/amity-online-fees'
+      preLoaderRoute: typeof AmityOnlineFeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-fees-$year': {
+      id: '/amity-online-fees-$year'
+      path: '/amity-online-fees-$year'
+      fullPath: '/amity-online-fees-$year'
+      preLoaderRoute: typeof AmityOnlineFeesYearRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-placement': {
+      id: '/amity-online-placement'
+      path: '/amity-online-placement'
+      fullPath: '/amity-online-placement'
+      preLoaderRoute: typeof AmityOnlinePlacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-review': {
+      id: '/amity-online-review'
+      path: '/amity-online-review'
+      fullPath: '/amity-online-review'
+      preLoaderRoute: typeof AmityOnlineReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-scholarship': {
+      id: '/amity-online-scholarship'
+      path: '/amity-online-scholarship'
+      fullPath: '/amity-online-scholarship'
+      preLoaderRoute: typeof AmityOnlineScholarshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-{$program}-in-{$city}': {
+      id: '/amity-online-{$program}-in-{$city}'
+      path: '/amity-online-{$program}-in-{$city}'
+      fullPath: '/amity-online-{$program}-in-{$city}'
+      preLoaderRoute: typeof AmityOnlineChar123programChar125InChar123cityChar125RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-vs-$competitor': {
+      id: '/amity-vs-$competitor'
+      path: '/amity-vs-$competitor'
+      fullPath: '/amity-vs-$competitor'
+      preLoaderRoute: typeof AmityVsCompetitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-online-$program': {
+      id: '/best-online-$program'
+      path: '/best-online-$program'
+      fullPath: '/best-online-$program'
+      preLoaderRoute: typeof BestOnlineProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare-universities': {
+      id: '/compare-universities'
+      path: '/compare-universities'
+      fullPath: '/compare-universities'
+      preLoaderRoute: typeof CompareUniversitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/$slug': {
