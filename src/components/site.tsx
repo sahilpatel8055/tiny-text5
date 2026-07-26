@@ -211,7 +211,7 @@ export function SiteHeader() {
           <img
             src={LOGO_SRC}
             alt="Amity Online — India's No. #1 Online University"
-            className="h-14 w-auto sm:h-20"
+            className="h-16 w-auto sm:h-24 lg:h-28"
           />
         </Link>
         <button
@@ -314,10 +314,8 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <img src={LOGO_SRC} alt="Amity Online" className="h-10 w-auto" />
-              <span className="rounded-md border border-border bg-secondary px-2 py-1 text-xs font-bold uppercase tracking-wider text-foreground">
-                avedu
-              </span>
+              <img src={LOGO_SRC} alt="Amity Online" className="h-14 w-auto" />
+              <img src={AVEDU_LOGO_SRC} alt="avedu" className="h-10 w-auto" />
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
               UGC-entitled online degrees from Amity University Online — India's No. #1 online
@@ -687,10 +685,8 @@ export function SeoPageLayout({
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
               <div className="mb-4 flex items-center gap-3">
-                <img src={LOGO_SRC} alt="Amity Online" className="h-12 w-auto" />
-                <span className="rounded-md border border-border bg-secondary px-2 py-1 text-xs font-bold uppercase tracking-wider text-foreground">
-                  avedu
-                </span>
+                <img src={LOGO_SRC} alt="Amity Online" className="h-14 w-auto sm:h-16" />
+                <img src={AVEDU_LOGO_SRC} alt="avedu" className="h-10 w-auto sm:h-12" />
               </div>
               <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
                 {title}
