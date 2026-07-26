@@ -309,3 +309,99 @@ export const findCourse = (slug: string): Course | undefined => {
   const normalized = slugAliases[slug] ?? slug;
   return allCourses.find((c) => c.slug === normalized);
 };
+
+// Programmatic SEO: city + course combos
+export const seoCities: { slug: string; name: string }[] = [
+  { slug: "mumbai", name: "Mumbai" },
+  { slug: "delhi", name: "Delhi" },
+  { slug: "bangalore", name: "Bangalore" },
+  { slug: "hyderabad", name: "Hyderabad" },
+  { slug: "chennai", name: "Chennai" },
+  { slug: "pune", name: "Pune" },
+  { slug: "kolkata", name: "Kolkata" },
+  { slug: "ahmedabad", name: "Ahmedabad" },
+  { slug: "jaipur", name: "Jaipur" },
+  { slug: "lucknow", name: "Lucknow" },
+  { slug: "chandigarh", name: "Chandigarh" },
+  { slug: "noida", name: "Noida" },
+];
+
+export const seoProgramSlugs: string[] = ["mba", "mca", "bba", "bca", "bcom", "mcom", "ba", "ma"];
+
+// Programmatic SEO: "vs" comparison pages
+export type Competitor = {
+  slug: string;
+  name: string;
+  naac: string;
+  ugc: string;
+  established: string;
+  feeMba: string;
+  feeBba: string;
+  highlight: string;
+  weakness: string;
+};
+
+export const competitors: Competitor[] = [
+  {
+    slug: "manipal",
+    name: "Manipal University Online",
+    naac: "A+",
+    ugc: "UGC-DEB Entitled",
+    established: "1953",
+    feeMba: "₹1,66,000",
+    feeBba: "₹1,20,000",
+    highlight: "Strong brand recognition and industry partnerships in South India.",
+    weakness: "Fewer specializations compared to Amity Online.",
+  },
+  {
+    slug: "lpu",
+    name: "LPU Online",
+    naac: "A++",
+    ugc: "UGC-DEB Entitled",
+    established: "2005",
+    feeMba: "₹1,45,000",
+    feeBba: "₹1,05,000",
+    highlight: "NAAC A++ with wide alumni network across India.",
+    weakness: "Career services less mature than Amity Online.",
+  },
+  {
+    slug: "jain",
+    name: "Jain Online",
+    naac: "A++",
+    ugc: "UGC-DEB Entitled",
+    established: "1990",
+    feeMba: "₹1,60,000",
+    feeBba: "₹1,10,000",
+    highlight: "Affordable fees and dedicated online cohort.",
+    weakness: "Smaller international recognition footprint.",
+  },
+  {
+    slug: "nmims",
+    name: "NMIMS Online",
+    naac: "A+",
+    ugc: "UGC-DEB Entitled",
+    established: "1981",
+    feeMba: "₹2,10,000",
+    feeBba: "₹1,50,000",
+    highlight: "Premium brand for MBA in western India.",
+    weakness: "Higher fees and stricter eligibility.",
+  },
+  {
+    slug: "ignou",
+    name: "IGNOU",
+    naac: "A++",
+    ugc: "Central Open University",
+    established: "1985",
+    feeMba: "₹31,500",
+    feeBba: "₹18,000",
+    highlight: "Lowest fees, government-run.",
+    weakness: "Limited placement support and slower digital experience.",
+  },
+];
+
+export const findCompetitor = (slug: string): Competitor | undefined =>
+  competitors.find((c) => c.slug === slug);
+
+// Programmatic SEO: fees-in-year pages
+export const seoFeeYears: string[] = ["2025", "2026", "2027"];
+
