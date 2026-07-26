@@ -310,23 +310,30 @@ export const findCourse = (slug: string): Course | undefined => {
   return allCourses.find((c) => c.slug === normalized);
 };
 
-// Programmatic SEO: city + course combos
-export const seoCities: { slug: string; name: string }[] = [
-  { slug: "mumbai", name: "Mumbai" },
-  { slug: "delhi", name: "Delhi" },
-  { slug: "bangalore", name: "Bangalore" },
-  { slug: "hyderabad", name: "Hyderabad" },
-  { slug: "chennai", name: "Chennai" },
-  { slug: "pune", name: "Pune" },
-  { slug: "kolkata", name: "Kolkata" },
-  { slug: "ahmedabad", name: "Ahmedabad" },
-  { slug: "jaipur", name: "Jaipur" },
-  { slug: "lucknow", name: "Lucknow" },
-  { slug: "chandigarh", name: "Chandigarh" },
-  { slug: "noida", name: "Noida" },
-];
+// Programmatic SEO: curated city + course combos (~24 pages).
+// Keep this list intentionally short and high-intent — quality over quantity.
+export const seoCityCourseCombos: { program: string; city: { slug: string; name: string } }[] = (
+  [
+    { slug: "mumbai", name: "Mumbai" },
+    { slug: "delhi", name: "Delhi" },
+    { slug: "bangalore", name: "Bangalore" },
+    { slug: "hyderabad", name: "Hyderabad" },
+    { slug: "pune", name: "Pune" },
+    { slug: "chennai", name: "Chennai" },
+  ] as const
+).flatMap((city) => ["mba", "mca", "bba", "bcom"].map((program) => ({ program, city })));
 
-export const seoProgramSlugs: string[] = ["mba", "mca", "bba", "bca", "bcom", "mcom", "ba", "ma"];
+// Back-compat helpers used by the city+course route/loader.
+export const seoCities = Array.from(
+  new Map(seoCityCourseCombos.map((c) => [c.city.slug, c.city])).values(),
+);
+export const seoProgramSlugs: string[] = Array.from(
+  new Set(seoCityCourseCombos.map((c) => c.program)),
+);
+export const isValidCityCourseCombo = (program: string, citySlug: string) =>
+  seoCityCourseCombos.some(
+    (c) => c.program === program.toLowerCase() && c.city.slug === citySlug.toLowerCase(),
+  );
 
 // Programmatic SEO: "vs" comparison pages
 export type Competitor = {

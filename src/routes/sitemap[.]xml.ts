@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { allCourses, seoCities, seoProgramSlugs, competitors, seoFeeYears } from "@/lib/amity";
+import { allCourses, seoCityCourseCombos, competitors, seoFeeYears } from "@/lib/amity";
 
 const BASE_URL = "https://amityonline.avedu.in";
 
@@ -26,8 +26,8 @@ export const Route = createFileRoute("/sitemap.xml")({
         ];
         const coursePaths = allCourses.map((c) => `/courses/${c.slug}`);
         const bestPaths = allCourses.map((c) => `/best-online-${c.slug}`);
-        const cityCoursePaths = seoProgramSlugs.flatMap((p) =>
-          seoCities.map((city) => `/amity-online-${p}-in-${city.slug}`),
+        const cityCoursePaths = seoCityCourseCombos.map(
+          (c) => `/amity-online-${c.program}-in-${c.city.slug}`,
         );
         const vsPaths = competitors.map((c) => `/amity-vs-${c.slug}`);
         const feeYearPaths = seoFeeYears.map((y) => `/amity-online-fees-${y}`);
