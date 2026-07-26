@@ -95,7 +95,7 @@ function Page() {
               </div>
               <p className="mt-6 text-lg text-muted-foreground">{post.description}</p>
               <div className="mt-8 space-y-6">
-                {post.content.map((s) => (
+                {post.content.map((s: { heading: string; body: string }) => (
                   <div key={s.heading}>
                     <h2 className="text-xl font-bold text-foreground sm:text-2xl">{s.heading}</h2>
                     <p className="mt-2 text-base text-muted-foreground">{s.body}</p>
