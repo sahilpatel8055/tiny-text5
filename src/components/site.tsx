@@ -206,12 +206,12 @@ export function LeadFormCompact() {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:h-24 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:h-32 sm:px-6 lg:h-36 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Amity Online — India's No. #1 Online University"
-            className="h-16 w-auto sm:h-24 lg:h-28"
+            className="h-20 w-auto sm:h-28 lg:h-32"
           />
         </Link>
         <button
