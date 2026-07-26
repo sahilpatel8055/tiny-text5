@@ -281,15 +281,15 @@ function CoursePage() {
                 <h2 className="mb-8 text-3xl font-bold leading-tight lg:text-4xl">
                   <span className="text-primary">Amity Online</span> Advantages
                 </h2>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {advantages.map((point) => (
-                    <div key={point.number} className="flex items-start gap-4">
+                    <div key={point.number} className="group flex cursor-pointer items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-colors duration-300 hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground">
                       <div className="flex-shrink-0">
-                        <span className="text-5xl font-bold leading-none text-primary">{point.number}</span>
+                        <span className="text-5xl font-bold leading-none text-primary transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground">{point.number}</span>
                       </div>
                       <div className="pt-2">
-                        <h3 className="mb-1 text-lg font-bold text-foreground">{point.title}</h3>
-                        <p className="leading-relaxed text-muted-foreground">{point.desc}</p>
+                        <h3 className="mb-1 text-lg font-bold text-foreground transition-colors group-hover:text-primary-foreground group-active:text-primary-foreground">{point.title}</h3>
+                        <p className="leading-relaxed text-muted-foreground transition-colors group-hover:text-primary-foreground/90 group-active:text-primary-foreground/90">{point.desc}</p>
                       </div>
                     </div>
                   ))}
