@@ -10,28 +10,29 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { lpu } from "@/lib/lpu";
+import { amity } from "@/lib/amity";
 import { CheckCircle2 } from "lucide-react";
 
-const CANONICAL = "https://lpuonline.avedu.in/compare-universities";
+const CANONICAL = "/compare-universities";
 
-const rows: { label: string; lpu: string; manipal: string; amity: string }[] = [
-  { label: "NAAC Grade", lpu: "A++", manipal: "A+", amity: "A+" },
-  { label: "UGC Entitlement", lpu: "Yes", manipal: "Yes", amity: "Yes" },
-  { label: "NIRF Rank Band", lpu: "Top 50", manipal: "Top 100", amity: "Top 100" },
-  { label: "Online MBA Fee (Total)", lpu: "₹1,50,000", manipal: "₹1,66,000", amity: "₹2,00,000" },
-  { label: "EMI Available", lpu: "0% EMI", manipal: "EMI", amity: "EMI" },
-  { label: "Placement Cell", lpu: "Yes · Dedicated", manipal: "Yes", amity: "Yes" },
-  { label: "LMS Access", lpu: "24×7", manipal: "24×7", amity: "24×7" },
+const rows: { label: string; amity: string; manipal: string; lpu: string }[] = [
+  { label: "NAAC Grade", amity: "A+", manipal: "A+", lpu: "A++" },
+  { label: "UGC Entitlement", amity: "Yes", manipal: "Yes", lpu: "Yes" },
+  { label: "Ranked Position", amity: "India's No. #1 Online", manipal: "Top online brand", lpu: "Top private university" },
+  { label: "Online MBA Fee (Total)", amity: "₹2,50,000", manipal: "₹1,66,000", lpu: "₹1,70,000" },
+  { label: "EMI Available", amity: "No-Cost EMI", manipal: "EMI", lpu: "EMI" },
+  { label: "Placement Cell", amity: "Yes · Dedicated", manipal: "Yes", lpu: "Yes" },
+  { label: "LMS Access", amity: "24×7", manipal: "24×7", lpu: "24×7" },
+  { label: "International Recognition", amity: "WES Recognised", manipal: "WES Recognised", lpu: "WES Recognised" },
 ];
 
 export const Route = createFileRoute("/compare-universities")({
   head: () => ({
     meta: [
-      { title: "Compare Online Universities 2026 — LPU vs Manipal vs Amity" },
-      { name: "description", content: "Compare LPU Online with Manipal Online and Amity Online — accreditation, NIRF, fees, EMI, placements and LMS side by side." },
+      { title: "Compare Online Universities 2026 — Amity vs Manipal vs LPU" },
+      { name: "description", content: "Compare Amity Online with Manipal Online and LPU Online — accreditation, ranking, fees, EMI, placements and LMS side by side." },
       { property: "og:title", content: "Compare Online Universities 2026" },
-      { property: "og:description", content: "LPU vs Manipal vs Amity — side-by-side comparison." },
+      { property: "og:description", content: "Amity vs Manipal vs LPU — side-by-side comparison." },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },
     ],
@@ -42,9 +43,9 @@ export const Route = createFileRoute("/compare-universities")({
         "@context": "https://schema.org",
         "@type": "ItemList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "LPU Online" },
+          { "@type": "ListItem", position: 1, name: "Amity Online" },
           { "@type": "ListItem", position: 2, name: "Manipal Online" },
-          { "@type": "ListItem", position: 3, name: "Amity Online" },
+          { "@type": "ListItem", position: 3, name: "LPU Online" },
         ],
       }),
     }],
@@ -66,7 +67,7 @@ function Page() {
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
               <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Compare Online Universities 2026</h1>
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Side-by-side comparison of LPU Online, Manipal Online and Amity Online across accreditation, fees, placements and learning experience.</p>
+              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Side-by-side comparison of Amity Online, Manipal Online and LPU Online across accreditation, fees, placements and learning experience.</p>
             </div>
             <div className="lg:sticky lg:top-24"><LeadFormCompact /></div>
           </div>
@@ -78,18 +79,18 @@ function Page() {
                 <thead className="bg-secondary/60">
                   <tr>
                     <th className="p-4 text-left font-bold text-foreground">Parameter</th>
-                    <th className="p-4 text-left font-bold text-primary">LPU Online</th>
+                    <th className="p-4 text-left font-bold text-primary">Amity Online</th>
                     <th className="p-4 text-left font-bold text-foreground">Manipal Online</th>
-                    <th className="p-4 text-left font-bold text-foreground">Amity Online</th>
+                    <th className="p-4 text-left font-bold text-foreground">LPU Online</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((r) => (
                     <tr key={r.label} className="border-t border-border">
                       <td className="p-4 font-semibold text-foreground">{r.label}</td>
-                      <td className="p-4 font-bold text-primary"><CheckCircle2 className="mr-1 inline h-4 w-4" />{r.lpu}</td>
+                      <td className="p-4 font-bold text-primary"><CheckCircle2 className="mr-1 inline h-4 w-4" />{r.amity}</td>
                       <td className="p-4 text-muted-foreground">{r.manipal}</td>
-                      <td className="p-4 text-muted-foreground">{r.amity}</td>
+                      <td className="p-4 text-muted-foreground">{r.lpu}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -97,7 +98,7 @@ function Page() {
             </div>
           </div>
         </section>
-        <SeoFaq items={lpu.faqs} />
+        <SeoFaq items={amity.faqs} />
         <PopularSearches />
       </main>
       <SiteFooter />

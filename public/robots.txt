@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lpuonline.avedu.in/sitemap.xml
+Sitemap: https://amityonline.avedu.in/sitemap.xml

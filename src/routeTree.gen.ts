@@ -9,93 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
-import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
-import { Route as DisclaimerRouteImport } from './routes/disclaimer'
-import { Route as FeesRouteImport } from './routes/fees'
-import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
-import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
-import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-courses'
-import { Route as LpuOnlineEligibilityRouteImport } from './routes/lpu-online-eligibility'
-import { Route as LpuOnlineFeesRouteImport } from './routes/lpu-online-fees'
-import { Route as LpuOnlinePlacementRouteImport } from './routes/lpu-online-placement'
-import { Route as LpuOnlineReviewRouteImport } from './routes/lpu-online-review'
-import { Route as LpuOnlineScholarshipRouteImport } from './routes/lpu-online-scholarship'
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
+import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
+import { Route as AmityOnlineScholarshipRouteImport } from './routes/amity-online-scholarship'
+import { Route as AmityOnlineReviewRouteImport } from './routes/amity-online-review'
+import { Route as AmityOnlinePlacementRouteImport } from './routes/amity-online-placement'
+import { Route as AmityOnlineFeesRouteImport } from './routes/amity-online-fees'
+import { Route as AmityOnlineEligibilityRouteImport } from './routes/amity-online-eligibility'
+import { Route as AmityOnlineCoursesRouteImport } from './routes/amity-online-courses'
+import { Route as AmityOnlineAdmissionLastDateRouteImport } from './routes/amity-online-admission-last-date'
+import { Route as AmityOnlineAdmissionRouteImport } from './routes/amity-online-admission'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
-  id: '/best-online-$program',
-  path: '/best-online-$program',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
-  id: '/compare-universities',
-  path: '/compare-universities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DisclaimerRoute = DisclaimerRouteImport.update({
-  id: '/disclaimer',
-  path: '/disclaimer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FeesRoute = FeesRouteImport.update({
-  id: '/fees',
-  path: '/fees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineAdmissionRoute = LpuOnlineAdmissionRouteImport.update({
-  id: '/lpu-online-admission',
-  path: '/lpu-online-admission',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineAdmissionLastDateRoute =
-  LpuOnlineAdmissionLastDateRouteImport.update({
-    id: '/lpu-online-admission-last-date',
-    path: '/lpu-online-admission-last-date',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const LpuOnlineCoursesRoute = LpuOnlineCoursesRouteImport.update({
-  id: '/lpu-online-courses',
-  path: '/lpu-online-courses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineEligibilityRoute = LpuOnlineEligibilityRouteImport.update({
-  id: '/lpu-online-eligibility',
-  path: '/lpu-online-eligibility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineFeesRoute = LpuOnlineFeesRouteImport.update({
-  id: '/lpu-online-fees',
-  path: '/lpu-online-fees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlinePlacementRoute = LpuOnlinePlacementRouteImport.update({
-  id: '/lpu-online-placement',
-  path: '/lpu-online-placement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineReviewRoute = LpuOnlineReviewRouteImport.update({
-  id: '/lpu-online-review',
-  path: '/lpu-online-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineScholarshipRoute = LpuOnlineScholarshipRouteImport.update({
-  id: '/lpu-online-scholarship',
-  path: '/lpu-online-scholarship',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
-  id: '/privacy-policy',
-  path: '/privacy-policy',
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -103,9 +37,75 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TermsConditionsRoute = TermsConditionsRouteImport.update({
-  id: '/terms-conditions',
-  path: '/terms-conditions',
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DisclaimerRoute = DisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
+  id: '/compare-universities',
+  path: '/compare-universities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
+  id: '/best-online-$program',
+  path: '/best-online-$program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineScholarshipRoute = AmityOnlineScholarshipRouteImport.update({
+  id: '/amity-online-scholarship',
+  path: '/amity-online-scholarship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineReviewRoute = AmityOnlineReviewRouteImport.update({
+  id: '/amity-online-review',
+  path: '/amity-online-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlinePlacementRoute = AmityOnlinePlacementRouteImport.update({
+  id: '/amity-online-placement',
+  path: '/amity-online-placement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineFeesRoute = AmityOnlineFeesRouteImport.update({
+  id: '/amity-online-fees',
+  path: '/amity-online-fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineEligibilityRoute = AmityOnlineEligibilityRouteImport.update({
+  id: '/amity-online-eligibility',
+  path: '/amity-online-eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineCoursesRoute = AmityOnlineCoursesRouteImport.update({
+  id: '/amity-online-courses',
+  path: '/amity-online-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityOnlineAdmissionLastDateRoute =
+  AmityOnlineAdmissionLastDateRouteImport.update({
+    id: '/amity-online-admission-last-date',
+    path: '/amity-online-admission-last-date',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AmityOnlineAdmissionRoute = AmityOnlineAdmissionRouteImport.update({
+  id: '/amity-online-admission',
+  path: '/amity-online-admission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
@@ -116,18 +116,18 @@ const CoursesSlugRoute = CoursesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/amity-online-admission': typeof AmityOnlineAdmissionRoute
+  '/amity-online-admission-last-date': typeof AmityOnlineAdmissionLastDateRoute
+  '/amity-online-courses': typeof AmityOnlineCoursesRoute
+  '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
+  '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-placement': typeof AmityOnlinePlacementRoute
+  '/amity-online-review': typeof AmityOnlineReviewRoute
+  '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -135,18 +135,18 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/amity-online-admission': typeof AmityOnlineAdmissionRoute
+  '/amity-online-admission-last-date': typeof AmityOnlineAdmissionLastDateRoute
+  '/amity-online-courses': typeof AmityOnlineCoursesRoute
+  '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
+  '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-placement': typeof AmityOnlinePlacementRoute
+  '/amity-online-review': typeof AmityOnlineReviewRoute
+  '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -155,18 +155,18 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/amity-online-admission': typeof AmityOnlineAdmissionRoute
+  '/amity-online-admission-last-date': typeof AmityOnlineAdmissionLastDateRoute
+  '/amity-online-courses': typeof AmityOnlineCoursesRoute
+  '/amity-online-eligibility': typeof AmityOnlineEligibilityRoute
+  '/amity-online-fees': typeof AmityOnlineFeesRoute
+  '/amity-online-placement': typeof AmityOnlinePlacementRoute
+  '/amity-online-review': typeof AmityOnlineReviewRoute
+  '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -176,18 +176,18 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/amity-online-admission'
+    | '/amity-online-admission-last-date'
+    | '/amity-online-courses'
+    | '/amity-online-eligibility'
+    | '/amity-online-fees'
+    | '/amity-online-placement'
+    | '/amity-online-review'
+    | '/amity-online-scholarship'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -195,18 +195,18 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/amity-online-admission'
+    | '/amity-online-admission-last-date'
+    | '/amity-online-courses'
+    | '/amity-online-eligibility'
+    | '/amity-online-fees'
+    | '/amity-online-placement'
+    | '/amity-online-review'
+    | '/amity-online-scholarship'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -214,18 +214,18 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/amity-online-admission'
+    | '/amity-online-admission-last-date'
+    | '/amity-online-courses'
+    | '/amity-online-eligibility'
+    | '/amity-online-fees'
+    | '/amity-online-placement'
+    | '/amity-online-review'
+    | '/amity-online-scholarship'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -234,18 +234,18 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AmityOnlineAdmissionRoute: typeof AmityOnlineAdmissionRoute
+  AmityOnlineAdmissionLastDateRoute: typeof AmityOnlineAdmissionLastDateRoute
+  AmityOnlineCoursesRoute: typeof AmityOnlineCoursesRoute
+  AmityOnlineEligibilityRoute: typeof AmityOnlineEligibilityRoute
+  AmityOnlineFeesRoute: typeof AmityOnlineFeesRoute
+  AmityOnlinePlacementRoute: typeof AmityOnlinePlacementRoute
+  AmityOnlineReviewRoute: typeof AmityOnlineReviewRoute
+  AmityOnlineScholarshipRoute: typeof AmityOnlineScholarshipRoute
   BestOnlineProgramRoute: typeof BestOnlineProgramRoute
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
   FeesRoute: typeof FeesRoute
-  LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
-  LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
-  LpuOnlineCoursesRoute: typeof LpuOnlineCoursesRoute
-  LpuOnlineEligibilityRoute: typeof LpuOnlineEligibilityRoute
-  LpuOnlineFeesRoute: typeof LpuOnlineFeesRoute
-  LpuOnlinePlacementRoute: typeof LpuOnlinePlacementRoute
-  LpuOnlineReviewRoute: typeof LpuOnlineReviewRoute
-  LpuOnlineScholarshipRoute: typeof LpuOnlineScholarshipRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
@@ -254,102 +254,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/best-online-$program': {
-      id: '/best-online-$program'
-      path: '/best-online-$program'
-      fullPath: '/best-online-$program'
-      preLoaderRoute: typeof BestOnlineProgramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/compare-universities': {
-      id: '/compare-universities'
-      path: '/compare-universities'
-      fullPath: '/compare-universities'
-      preLoaderRoute: typeof CompareUniversitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/disclaimer': {
-      id: '/disclaimer'
-      path: '/disclaimer'
-      fullPath: '/disclaimer'
-      preLoaderRoute: typeof DisclaimerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/fees': {
-      id: '/fees'
-      path: '/fees'
-      fullPath: '/fees'
-      preLoaderRoute: typeof FeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-admission': {
-      id: '/lpu-online-admission'
-      path: '/lpu-online-admission'
-      fullPath: '/lpu-online-admission'
-      preLoaderRoute: typeof LpuOnlineAdmissionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-admission-last-date': {
-      id: '/lpu-online-admission-last-date'
-      path: '/lpu-online-admission-last-date'
-      fullPath: '/lpu-online-admission-last-date'
-      preLoaderRoute: typeof LpuOnlineAdmissionLastDateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-courses': {
-      id: '/lpu-online-courses'
-      path: '/lpu-online-courses'
-      fullPath: '/lpu-online-courses'
-      preLoaderRoute: typeof LpuOnlineCoursesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-eligibility': {
-      id: '/lpu-online-eligibility'
-      path: '/lpu-online-eligibility'
-      fullPath: '/lpu-online-eligibility'
-      preLoaderRoute: typeof LpuOnlineEligibilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-fees': {
-      id: '/lpu-online-fees'
-      path: '/lpu-online-fees'
-      fullPath: '/lpu-online-fees'
-      preLoaderRoute: typeof LpuOnlineFeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-placement': {
-      id: '/lpu-online-placement'
-      path: '/lpu-online-placement'
-      fullPath: '/lpu-online-placement'
-      preLoaderRoute: typeof LpuOnlinePlacementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-review': {
-      id: '/lpu-online-review'
-      path: '/lpu-online-review'
-      fullPath: '/lpu-online-review'
-      preLoaderRoute: typeof LpuOnlineReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-scholarship': {
-      id: '/lpu-online-scholarship'
-      path: '/lpu-online-scholarship'
-      fullPath: '/lpu-online-scholarship'
-      preLoaderRoute: typeof LpuOnlineScholarshipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -359,11 +268,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/terms-conditions': {
-      id: '/terms-conditions'
-      path: '/terms-conditions'
-      fullPath: '/terms-conditions'
-      preLoaderRoute: typeof TermsConditionsRouteImport
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disclaimer': {
+      id: '/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare-universities': {
+      id: '/compare-universities'
+      path: '/compare-universities'
+      fullPath: '/compare-universities'
+      preLoaderRoute: typeof CompareUniversitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-online-$program': {
+      id: '/best-online-$program'
+      path: '/best-online-$program'
+      fullPath: '/best-online-$program'
+      preLoaderRoute: typeof BestOnlineProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-scholarship': {
+      id: '/amity-online-scholarship'
+      path: '/amity-online-scholarship'
+      fullPath: '/amity-online-scholarship'
+      preLoaderRoute: typeof AmityOnlineScholarshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-review': {
+      id: '/amity-online-review'
+      path: '/amity-online-review'
+      fullPath: '/amity-online-review'
+      preLoaderRoute: typeof AmityOnlineReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-placement': {
+      id: '/amity-online-placement'
+      path: '/amity-online-placement'
+      fullPath: '/amity-online-placement'
+      preLoaderRoute: typeof AmityOnlinePlacementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-fees': {
+      id: '/amity-online-fees'
+      path: '/amity-online-fees'
+      fullPath: '/amity-online-fees'
+      preLoaderRoute: typeof AmityOnlineFeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-eligibility': {
+      id: '/amity-online-eligibility'
+      path: '/amity-online-eligibility'
+      fullPath: '/amity-online-eligibility'
+      preLoaderRoute: typeof AmityOnlineEligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-courses': {
+      id: '/amity-online-courses'
+      path: '/amity-online-courses'
+      fullPath: '/amity-online-courses'
+      preLoaderRoute: typeof AmityOnlineCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-admission-last-date': {
+      id: '/amity-online-admission-last-date'
+      path: '/amity-online-admission-last-date'
+      fullPath: '/amity-online-admission-last-date'
+      preLoaderRoute: typeof AmityOnlineAdmissionLastDateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-online-admission': {
+      id: '/amity-online-admission'
+      path: '/amity-online-admission'
+      fullPath: '/amity-online-admission'
+      preLoaderRoute: typeof AmityOnlineAdmissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses/$slug': {
@@ -378,18 +378,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AmityOnlineAdmissionRoute: AmityOnlineAdmissionRoute,
+  AmityOnlineAdmissionLastDateRoute: AmityOnlineAdmissionLastDateRoute,
+  AmityOnlineCoursesRoute: AmityOnlineCoursesRoute,
+  AmityOnlineEligibilityRoute: AmityOnlineEligibilityRoute,
+  AmityOnlineFeesRoute: AmityOnlineFeesRoute,
+  AmityOnlinePlacementRoute: AmityOnlinePlacementRoute,
+  AmityOnlineReviewRoute: AmityOnlineReviewRoute,
+  AmityOnlineScholarshipRoute: AmityOnlineScholarshipRoute,
   BestOnlineProgramRoute: BestOnlineProgramRoute,
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
   FeesRoute: FeesRoute,
-  LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
-  LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
-  LpuOnlineCoursesRoute: LpuOnlineCoursesRoute,
-  LpuOnlineEligibilityRoute: LpuOnlineEligibilityRoute,
-  LpuOnlineFeesRoute: LpuOnlineFeesRoute,
-  LpuOnlinePlacementRoute: LpuOnlinePlacementRoute,
-  LpuOnlineReviewRoute: LpuOnlineReviewRoute,
-  LpuOnlineScholarshipRoute: LpuOnlineScholarshipRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsConditionsRoute: TermsConditionsRoute,

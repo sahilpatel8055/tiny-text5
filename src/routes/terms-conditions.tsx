@@ -1,16 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
-import { lpu } from "@/lib/lpu";
+import { amity } from "@/lib/amity";
 
-const CANONICAL = "https://lpuonline.avedu.in/terms-conditions";
+const CANONICAL = "/terms-conditions";
 
 export const Route = createFileRoute("/terms-conditions")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — LPU Online · avedu" },
-      { name: "description", content: "Terms & Conditions for using lpuonline.avedu.in, independently owned and operated by Avedu Pvt Ltd." },
-      { property: "og:title", content: "Terms & Conditions — LPU Online · avedu" },
-      { property: "og:description", content: "Terms of use for lpuonline.avedu.in." },
+      { title: "Terms & Conditions — Amity Online · avedu" },
+      { name: "description", content: "Terms & Conditions for using amityonline.avedu.in, independently owned and operated by Avedu Pvt Ltd." },
+      { property: "og:title", content: "Terms & Conditions — Amity Online · avedu" },
+      { property: "og:description", content: "Terms of use for amityonline.avedu.in." },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },
     ],
@@ -23,7 +23,7 @@ function Page() {
   return (
     <SeoPageLayout
       title="Terms & Conditions"
-      intro="These Terms & Conditions govern your use of the website www.lpuonline.avedu.in, independently owned and operated by Avedu Pvt Ltd. By using this platform, you agree to abide by the terms mentioned herein. We provide counselling and information services to help users explore online and distance education programs offered by UGC-DEB-approved universities. We are not an admission center and do not claim to represent or be affiliated with any university, including LPU."
+      intro="These Terms & Conditions govern your use of the website www.amityonline.avedu.in, independently owned and operated by Avedu Pvt Ltd. By using this platform, you agree to abide by the terms mentioned herein. We provide counselling and information services to help users explore online and distance education programs offered by UGC-DEB-approved universities. We are not an admission center and do not claim to represent or be affiliated with any university, including Amity University."
       breadcrumb={[{ label: "Terms & Conditions" }]}
       sections={[
         {
@@ -32,7 +32,7 @@ function Page() {
         },
         {
           heading: "2. No Affiliation Guarantee",
-          bullets: ["We are not affiliated with LPU or any other university.", "All information is provided for awareness and reference only."],
+          bullets: ["We are not affiliated with Amity University or any other university.", "All information is provided for awareness and reference only."],
         },
         {
           heading: "3. Changes to These Terms",
@@ -40,10 +40,10 @@ function Page() {
         },
         {
           heading: "4. Contact",
-          bullets: ["For any concerns, reach out to: support@lpuonline.avedu.in"],
+          bullets: ["For any concerns, reach out to: support@amityonline.avedu.in"],
         },
       ]}
-      faqs={lpu.faqs.slice(0, 4)}
+      faqs={amity.faqs.slice(0, 4)}
     />
   );
 }
