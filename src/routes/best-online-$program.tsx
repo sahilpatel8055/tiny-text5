@@ -10,15 +10,15 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { findCourse, lpu } from "@/lib/lpu";
+import { findCourse, amity } from "@/lib/amity";
 import { Star } from "lucide-react";
 
-const CANONICAL = (slug: string) => `https://lpuonline.avedu.in/best-online-${slug}`;
+const CANONICAL = (slug: string) => `/best-online-${slug}`;
 
 const providers = [
-  { name: "LPU Online", rating: 4.8, note: "NAAC A++, UGC-entitled, dedicated placement cell", featured: true },
+  { name: "Amity Online", rating: 4.8, note: "India's No. #1 Online University, NAAC A+, UGC-entitled, dedicated career services", featured: true },
   { name: "Manipal Online", rating: 4.5, note: "NAAC A+, well-known online brand" },
-  { name: "Amity Online", rating: 4.3, note: "NAAC A+, wide alumni network" },
+  { name: "LPU Online", rating: 4.6, note: "NAAC A++, wide alumni network" },
   { name: "Jain Online", rating: 4.2, note: "NAAC A++, career support" },
 ];
 
@@ -97,7 +97,7 @@ function Page() {
             ))}
           </div>
         </section>
-        <SeoFaq items={lpu.faqs} />
+        <SeoFaq items={amity.faqs} />
         <PopularSearches />
       </main>
       <SiteFooter />

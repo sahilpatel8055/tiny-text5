@@ -10,17 +10,17 @@ import {
   SeoFaq,
   LeadFormCompact,
 } from "@/components/site";
-import { allCourses, lpu } from "@/lib/lpu";
+import { allCourses, amity } from "@/lib/amity";
 
-const CANONICAL = "https://lpuonline.avedu.in/fees";
+const CANONICAL = "/fees";
 
 export const Route = createFileRoute("/fees")({
   head: () => ({
     meta: [
-      { title: "LPU Online Fees 2026 — Full Fee Comparison Table (UG & PG)" },
-      { name: "description", content: "Compare LPU Online course fees at a glance — full fee, per-semester and EMI options for BBA, BCA, B.Com, BA, MBA, MCA, M.Com and MA." },
-      { property: "og:title", content: "LPU Online Fees 2026" },
-      { property: "og:description", content: "Program-wise fee comparison for LPU Online." },
+      { title: "Amity Online Fees 2026 — Full Fee Comparison Table (UG & PG)" },
+      { name: "description", content: "Compare Amity Online course fees at a glance — full fee, per-semester and no-cost EMI options for BBA, BCA, B.Com, BA, MBA, MCA, M.Com and MA." },
+      { property: "og:title", content: "Amity Online Fees 2026" },
+      { property: "og:description", content: "Program-wise fee comparison for Amity Online." },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },
     ],
@@ -42,8 +42,8 @@ function Page() {
         >
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
-              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">LPU Online Fees Comparison 2026</h1>
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare full fee, per-semester fee and EMI plans for all UG and PG online programs from LPU Online.</p>
+              <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">Amity Online Fees Comparison 2026</h1>
+              <p className="mt-4 text-base text-muted-foreground sm:text-lg">Compare full fee, per-semester fee and no-cost EMI plans for all UG and PG online programs from Amity Online.</p>
             </div>
             <div className="lg:sticky lg:top-24"><LeadFormCompact /></div>
           </div>
@@ -80,7 +80,7 @@ function Page() {
             </div>
           </div>
         </section>
-        <SeoFaq items={lpu.faqs} />
+        <SeoFaq items={amity.faqs} />
         <PopularSearches />
       </main>
       <SiteFooter />

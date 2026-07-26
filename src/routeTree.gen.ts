@@ -12,14 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as LpuOnlineScholarshipRouteImport } from './routes/lpu-online-scholarship'
-import { Route as LpuOnlineReviewRouteImport } from './routes/lpu-online-review'
-import { Route as LpuOnlinePlacementRouteImport } from './routes/lpu-online-placement'
-import { Route as LpuOnlineFeesRouteImport } from './routes/lpu-online-fees'
-import { Route as LpuOnlineEligibilityRouteImport } from './routes/lpu-online-eligibility'
-import { Route as LpuOnlineCoursesRouteImport } from './routes/lpu-online-courses'
-import { Route as LpuOnlineAdmissionLastDateRouteImport } from './routes/lpu-online-admission-last-date'
-import { Route as LpuOnlineAdmissionRouteImport } from './routes/lpu-online-admission'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
@@ -40,47 +32,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineScholarshipRoute = LpuOnlineScholarshipRouteImport.update({
-  id: '/lpu-online-scholarship',
-  path: '/lpu-online-scholarship',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineReviewRoute = LpuOnlineReviewRouteImport.update({
-  id: '/lpu-online-review',
-  path: '/lpu-online-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlinePlacementRoute = LpuOnlinePlacementRouteImport.update({
-  id: '/lpu-online-placement',
-  path: '/lpu-online-placement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineFeesRoute = LpuOnlineFeesRouteImport.update({
-  id: '/lpu-online-fees',
-  path: '/lpu-online-fees',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineEligibilityRoute = LpuOnlineEligibilityRouteImport.update({
-  id: '/lpu-online-eligibility',
-  path: '/lpu-online-eligibility',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineCoursesRoute = LpuOnlineCoursesRouteImport.update({
-  id: '/lpu-online-courses',
-  path: '/lpu-online-courses',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LpuOnlineAdmissionLastDateRoute =
-  LpuOnlineAdmissionLastDateRouteImport.update({
-    id: '/lpu-online-admission-last-date',
-    path: '/lpu-online-admission-last-date',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const LpuOnlineAdmissionRoute = LpuOnlineAdmissionRouteImport.update({
-  id: '/lpu-online-admission',
-  path: '/lpu-online-admission',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeesRoute = FeesRouteImport.update({
@@ -120,14 +71,6 @@ export interface FileRoutesByFullPath {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -139,14 +82,6 @@ export interface FileRoutesByTo {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -159,14 +94,6 @@ export interface FileRoutesById {
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
   '/fees': typeof FeesRoute
-  '/lpu-online-admission': typeof LpuOnlineAdmissionRoute
-  '/lpu-online-admission-last-date': typeof LpuOnlineAdmissionLastDateRoute
-  '/lpu-online-courses': typeof LpuOnlineCoursesRoute
-  '/lpu-online-eligibility': typeof LpuOnlineEligibilityRoute
-  '/lpu-online-fees': typeof LpuOnlineFeesRoute
-  '/lpu-online-placement': typeof LpuOnlinePlacementRoute
-  '/lpu-online-review': typeof LpuOnlineReviewRoute
-  '/lpu-online-scholarship': typeof LpuOnlineScholarshipRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms-conditions': typeof TermsConditionsRoute
@@ -180,14 +107,6 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -199,14 +118,6 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -218,14 +129,6 @@ export interface FileRouteTypes {
     | '/compare-universities'
     | '/disclaimer'
     | '/fees'
-    | '/lpu-online-admission'
-    | '/lpu-online-admission-last-date'
-    | '/lpu-online-courses'
-    | '/lpu-online-eligibility'
-    | '/lpu-online-fees'
-    | '/lpu-online-placement'
-    | '/lpu-online-review'
-    | '/lpu-online-scholarship'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms-conditions'
@@ -238,14 +141,6 @@ export interface RootRouteChildren {
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
   FeesRoute: typeof FeesRoute
-  LpuOnlineAdmissionRoute: typeof LpuOnlineAdmissionRoute
-  LpuOnlineAdmissionLastDateRoute: typeof LpuOnlineAdmissionLastDateRoute
-  LpuOnlineCoursesRoute: typeof LpuOnlineCoursesRoute
-  LpuOnlineEligibilityRoute: typeof LpuOnlineEligibilityRoute
-  LpuOnlineFeesRoute: typeof LpuOnlineFeesRoute
-  LpuOnlinePlacementRoute: typeof LpuOnlinePlacementRoute
-  LpuOnlineReviewRoute: typeof LpuOnlineReviewRoute
-  LpuOnlineScholarshipRoute: typeof LpuOnlineScholarshipRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsConditionsRoute: typeof TermsConditionsRoute
@@ -273,62 +168,6 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-scholarship': {
-      id: '/lpu-online-scholarship'
-      path: '/lpu-online-scholarship'
-      fullPath: '/lpu-online-scholarship'
-      preLoaderRoute: typeof LpuOnlineScholarshipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-review': {
-      id: '/lpu-online-review'
-      path: '/lpu-online-review'
-      fullPath: '/lpu-online-review'
-      preLoaderRoute: typeof LpuOnlineReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-placement': {
-      id: '/lpu-online-placement'
-      path: '/lpu-online-placement'
-      fullPath: '/lpu-online-placement'
-      preLoaderRoute: typeof LpuOnlinePlacementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-fees': {
-      id: '/lpu-online-fees'
-      path: '/lpu-online-fees'
-      fullPath: '/lpu-online-fees'
-      preLoaderRoute: typeof LpuOnlineFeesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-eligibility': {
-      id: '/lpu-online-eligibility'
-      path: '/lpu-online-eligibility'
-      fullPath: '/lpu-online-eligibility'
-      preLoaderRoute: typeof LpuOnlineEligibilityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-courses': {
-      id: '/lpu-online-courses'
-      path: '/lpu-online-courses'
-      fullPath: '/lpu-online-courses'
-      preLoaderRoute: typeof LpuOnlineCoursesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-admission-last-date': {
-      id: '/lpu-online-admission-last-date'
-      path: '/lpu-online-admission-last-date'
-      fullPath: '/lpu-online-admission-last-date'
-      preLoaderRoute: typeof LpuOnlineAdmissionLastDateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lpu-online-admission': {
-      id: '/lpu-online-admission'
-      path: '/lpu-online-admission'
-      fullPath: '/lpu-online-admission'
-      preLoaderRoute: typeof LpuOnlineAdmissionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fees': {
@@ -382,14 +221,6 @@ const rootRouteChildren: RootRouteChildren = {
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
   FeesRoute: FeesRoute,
-  LpuOnlineAdmissionRoute: LpuOnlineAdmissionRoute,
-  LpuOnlineAdmissionLastDateRoute: LpuOnlineAdmissionLastDateRoute,
-  LpuOnlineCoursesRoute: LpuOnlineCoursesRoute,
-  LpuOnlineEligibilityRoute: LpuOnlineEligibilityRoute,
-  LpuOnlineFeesRoute: LpuOnlineFeesRoute,
-  LpuOnlinePlacementRoute: LpuOnlinePlacementRoute,
-  LpuOnlineReviewRoute: LpuOnlineReviewRoute,
-  LpuOnlineScholarshipRoute: LpuOnlineScholarshipRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsConditionsRoute: TermsConditionsRoute,
@@ -398,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

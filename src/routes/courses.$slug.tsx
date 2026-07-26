@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { findCourse, allCourses, lpu, type Course } from "@/lib/lpu";
-import lpuCertificate from "@/assets/sample-degree.webp.asset.json";
+import { findCourse, allCourses, amity, type Course } from "@/lib/amity";
+import amityCertificate from "@/assets/amity-sample-degree.jpeg.asset.json";
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
 import { useState } from "react";
@@ -17,12 +17,12 @@ import {
   Breadcrumb,
   SeoFaq,
   PopularSearches,
+  LOGO_SRC,
 } from "@/components/site";
 import {
   Award,
   BadgeCheck,
   BookOpen,
-  Briefcase,
   ChevronLeft,
   ChevronRight,
   Clock,
@@ -35,9 +35,6 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const LOGO_SRC = "/lpu-logo.png";
-
-
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
     const course = findCourse(params.slug);
@@ -47,12 +44,12 @@ export const Route = createFileRoute("/courses/$slug")({
   head: ({ loaderData, params }) => {
     const c = loaderData?.course;
     const title = c
-      ? `${c.name} — LPU Online | UGC Entitled Degree, Fees & Admission 2026`
-      : "Course — LPU Online";
+      ? `${c.name} — Amity Online | UGC Entitled Degree, Fees & Admission 2026`
+      : "Course — Amity Online";
     const desc = c
-      ? `${c.tagline} 100% online, UGC-entitled, NAAC A++ university. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for LPU Online admission 2026.`
-      : "Explore online degree programs from LPU Online.";
-    const canonical = `https://lpuonline.avedu.in/courses/${params.slug}`;
+      ? `${c.tagline} 100% online, UGC-entitled degree from Amity University. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for Amity Online admission 2026.`
+      : "Explore online degree programs from Amity Online.";
+    const canonical = `/courses/${params.slug}`;
     const courseSchema = c
       ? {
           "@context": "https://schema.org",
@@ -61,8 +58,7 @@ export const Route = createFileRoute("/courses/$slug")({
           description: c.tagline,
           provider: {
             "@type": "CollegeOrUniversity",
-            name: "Lovely Professional University",
-            sameAs: "https://www.lpu.in/",
+            name: "Amity University Online",
           },
           hasCourseInstance: {
             "@type": "CourseInstance",
@@ -98,13 +94,8 @@ export const Route = createFileRoute("/courses/$slug")({
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-4 py-24 text-center">
         <h1 className="text-3xl font-bold text-foreground">Course not found</h1>
-        <p className="mt-3 text-muted-foreground">
-          The course you are looking for does not exist.
-        </p>
-        <Link
-          to="/"
-          className="mt-6 inline-flex items-center gap-1 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
-        >
+        <p className="mt-3 text-muted-foreground">The course you are looking for does not exist.</p>
+        <Link to="/" className="mt-6 inline-flex items-center gap-1 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
           Back to home <ChevronRight className="h-4 w-4" />
         </Link>
       </main>
@@ -116,10 +107,7 @@ export const Route = createFileRoute("/courses/$slug")({
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-4 py-24 text-center">
         <h1 className="text-3xl font-bold text-foreground">Something went wrong</h1>
-        <button
-          onClick={reset}
-          className="mt-6 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
-        >
+        <button onClick={reset} className="mt-6 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">
           Try again
         </button>
       </main>
@@ -129,7 +117,6 @@ export const Route = createFileRoute("/courses/$slug")({
   component: CoursePage,
 });
 
-// Parse "₹1,20,000" → 120000 (or null if it can't)
 function parseFeeNumber(s: string): number | null {
   const digits = s.replace(/[^0-9]/g, "");
   if (!digits) return null;
@@ -140,125 +127,68 @@ function formatINR(n: number): string {
 }
 
 const advantages = [
-  {
-    number: "1",
-    title: "Flexibility:",
-    desc: "LPU Online offers a flexible learning environment suitable for working professionals.",
-  },
-  {
-    number: "2",
-    title: "Quality Education:",
-    desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends.",
-  },
-  {
-    number: "3",
-    title: "24*7 LMS Access:",
-    desc: "Get unlimited 24×7 access to our Learning Management System so you can study anytime, anywhere. All your course materials, lectures, and assignments are just a click away.",
-  },
-  {
-    number: "4",
-    title: "1 on 1 mentor:",
-    desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster.",
-  },
-  {
-    number: "5",
-    title: "Placement Support:",
-    desc: "Get dedicated placement support with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities.",
-  },
+  { number: "1", title: "Flexibility:", desc: "Amity Online offers a flexible learning environment suitable for working professionals and homemakers." },
+  { number: "2", title: "Quality Education:", desc: "The program maintains high academic standards with a curriculum updated to reflect industry trends." },
+  { number: "3", title: "24×7 LMS Access:", desc: "Get unlimited 24×7 access to the Amrita Learning Management System so you can study anytime, anywhere. All your course materials, recorded lectures, and assignments are just a click away." },
+  { number: "4", title: "1-on-1 Mentorship:", desc: "Receive personalized guidance with 1-on-1 mentorship tailored to your learning needs. Get expert support to clarify doubts, plan studies, and achieve your goals faster." },
+  { number: "5", title: "Career Support:", desc: "Dedicated career services with active job promotion to top recruiters. From resume building to interview preparation, we help you secure and showcase your profile for the best opportunities." },
 ];
 
 function CoursePage() {
   const { course } = Route.useLoaderData() as { course: Course };
   const { open, setOpen } = useModalTrigger();
 
-  const semesters = course.curriculum.map((y, i) => ({
+  const semesters = course.curriculum.map((_, i) => ({
     label: `Semester ${i + 1}`,
-    subjects: y.subjects,
+    subjects: course.curriculum[i].subjects,
   }));
   const [semIdx, setSemIdx] = useState(0);
   const activeSem = semesters[semIdx] ?? semesters[0];
 
-  // Discounted pricing (20% off full fee)
   const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
   const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
 
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <Breadcrumb items={[{ label: "Courses", to: "/lpu-online-courses" }, { label: course.name }]} />
+      <Breadcrumb items={[{ label: "Courses", to: "/amity-online-courses" }, { label: course.name }]} />
       <main>
-
-        {/* Hero (with sticky form column) */}
         <section
           className="relative overflow-hidden bg-background py-12 sm:py-16"
-          style={{
-            backgroundImage:
-              "linear-gradient(135deg, color-mix(in oklab, var(--primary) 10%, transparent), transparent 60%)",
-          }}
+          style={{ backgroundImage: "linear-gradient(135deg, color-mix(in oklab, var(--primary) 10%, transparent), transparent 60%)" }}
         >
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
               <div className="flex items-center gap-4">
-                <img
-                  src={LOGO_SRC}
-                  alt="LPU Online"
-                  className="h-14 w-14 rounded-lg bg-white object-contain p-1 ring-1 ring-border sm:h-16 sm:w-16"
-                />
+                <img src={LOGO_SRC} alt="Amity Online" className="h-14 w-14 rounded-lg bg-white object-contain p-1 ring-1 ring-border sm:h-16 sm:w-16" />
                 <div className="min-w-0">
-                  <h1 className="truncate text-3xl font-bold text-foreground sm:text-4xl">
-                    {course.name}
-                  </h1>
-                  <p className="mt-1 text-sm text-muted-foreground sm:text-base">
-                    Lovely Professional University Online
-                  </p>
+                  <h1 className="truncate text-3xl font-bold text-foreground sm:text-4xl">{course.name}</h1>
+                  <p className="mt-1 text-sm text-muted-foreground sm:text-base">Amity University Online</p>
                 </div>
               </div>
-              <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-                {course.tagline}
-              </p>
+              <p className="mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">{course.tagline}</p>
               <div className="mt-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5">
-                  <Clock className="h-4 w-4 text-primary" /> {course.duration}
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Award className="h-4 w-4 text-primary" />{" "}
-                  {course.level.toUpperCase()} Program
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Star className="h-4 w-4 fill-primary text-primary" />
-                  {course.rating} ({course.reviews.toLocaleString()} Reviews)
-                </span>
+                <span className="inline-flex items-center gap-1.5"><Clock className="h-4 w-4 text-primary" /> {course.duration}</span>
+                <span className="inline-flex items-center gap-1.5"><Award className="h-4 w-4 text-primary" /> {course.level.toUpperCase()} Program</span>
+                <span className="inline-flex items-center gap-1.5"><Star className="h-4 w-4 fill-primary text-primary" />{course.rating} ({course.reviews.toLocaleString()} Reviews)</span>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
-                >
+                <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90">
                   Apply Now <ChevronRight className="h-4 w-4" />
                 </button>
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent"
-                >
+                <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent">
                   <Download className="h-4 w-4" /> Download Brochure
                 </button>
               </div>
             </div>
-            <div className="lg:sticky lg:top-24">
-              <LeadFormCompact />
-            </div>
+            <div className="lg:sticky lg:top-24"><LeadFormCompact /></div>
           </div>
         </section>
 
-        {/* Specializations — 2-per-row grid with arrow navigation */}
         {course.specializations && course.specializations.length > 0 && (
           <SpecializationsSection specializations={course.specializations} />
         )}
 
-
-        {/* Curriculum — semester-wise, mobile-friendly nav */}
         <section className="bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
@@ -269,221 +199,134 @@ function CoursePage() {
             </p>
 
             <div className="mt-6 rounded-2xl border border-border bg-card p-4 sm:p-6">
-              {/* Desktop / tablet tabs */}
               <div className="hidden flex-wrap gap-2 sm:flex">
                 {semesters.map((s, i) => (
-                  <button
-                    key={s.label}
-                    type="button"
-                    onClick={() => setSemIdx(i)}
-                    className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
-                      semIdx === i
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-secondary text-muted-foreground hover:bg-accent"
-                    }`}
-                  >
+                  <button key={s.label} type="button" onClick={() => setSemIdx(i)} className={`rounded-md px-4 py-2 text-sm font-semibold transition ${semIdx === i ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground hover:bg-accent"}`}>
                     {s.label}
                   </button>
                 ))}
               </div>
 
-              {/* Mobile pager */}
               <div className="flex items-center justify-between gap-3 sm:hidden">
-                <button
-                  type="button"
-                  aria-label="Previous semester"
-                  onClick={() => setSemIdx((i) => Math.max(0, i - 1))}
-                  disabled={semIdx === 0}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40"
-                >
+                <button type="button" aria-label="Previous semester" onClick={() => setSemIdx((i) => Math.max(0, i - 1))} disabled={semIdx === 0} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40">
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <div className="flex-1 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {semIdx + 1} of {semesters.length}
-                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{semIdx + 1} of {semesters.length}</p>
                   <p className="text-base font-bold text-foreground">{activeSem?.label}</p>
                 </div>
-                <button
-                  type="button"
-                  aria-label="Next semester"
-                  onClick={() =>
-                    setSemIdx((i) => Math.min(semesters.length - 1, i + 1))
-                  }
-                  disabled={semIdx === semesters.length - 1}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40"
-                >
+                <button type="button" aria-label="Next semester" onClick={() => setSemIdx((i) => Math.min(semesters.length - 1, i + 1))} disabled={semIdx === semesters.length - 1} className="grid h-10 w-10 place-items-center rounded-full border border-border bg-background text-foreground disabled:opacity-40">
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
 
               <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
                 {activeSem?.subjects.map((s) => (
-                  <div
-                    key={s}
-                    className="flex items-start gap-3 rounded-lg border border-border bg-background p-4"
-                  >
+                  <div key={s} className="flex items-start gap-3 rounded-lg border border-border bg-background p-4">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                     <span className="text-sm font-medium text-foreground">{s}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Mobile dots */}
               <div className="mt-5 flex justify-center gap-2 sm:hidden">
                 {semesters.map((s, i) => (
-                  <button
-                    key={s.label}
-                    type="button"
-                    aria-label={`Go to ${s.label}`}
-                    onClick={() => setSemIdx(i)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      semIdx === i ? "w-6 bg-primary" : "w-2.5 bg-border"
-                    }`}
-                  />
+                  <button key={s.label} type="button" aria-label={`Go to ${s.label}`} onClick={() => setSemIdx(i)} className={`h-2.5 rounded-full transition-all ${semIdx === i ? "w-6 bg-primary" : "w-2.5 bg-border"}`} />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Fees — moved BELOW curriculum, with discount UI */}
         <section className="bg-background py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="flex items-center gap-2 text-2xl font-bold text-foreground sm:text-3xl">
               <IndianRupee className="h-7 w-7 text-primary" /> Online {course.name} Fee
             </h2>
             <div className="mt-6 grid grid-cols-1 gap-6 rounded-2xl border border-primary/20 bg-accent p-6 md:grid-cols-3">
-              {/* Full fee card with discount */}
               <div>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  Full Fee Payment
-                </p>
-                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">
-                  {course.feesBreakdown.fullFees}
-                </p>
-                <p className="text-3xl font-extrabold text-primary sm:text-4xl">
-                  {discountedFull}
-                </p>
+                <p className="text-sm font-semibold text-muted-foreground">Full Fee Payment</p>
+                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">{course.feesBreakdown.fullFees}</p>
+                <p className="text-3xl font-extrabold text-primary sm:text-4xl">{discountedFull}</p>
                 <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
                   <Sparkles className="h-3.5 w-3.5" /> 20% discount
                 </p>
               </div>
-              <FeeStat
-                label="Each Semester Fee"
-                value={course.feesBreakdown.perSemester}
-                note="Inclusive of all taxes"
-              />
-              <FeeStat
-                label="EMI Starting at"
-                value={course.feesBreakdown.emi}
-                note="Terms & conditions apply"
-              />
+              <FeeStat label="Each Semester Fee" value={course.feesBreakdown.perSemester} note="Inclusive of all taxes" />
+              <FeeStat label="EMI Starting at" value={course.feesBreakdown.emi} note="Terms & conditions apply" />
             </div>
           </div>
         </section>
 
-        {/* LPU Online Advantages — numbered list + image (matches reference) */}
         <section className="relative overflow-hidden bg-background py-16">
           <div className="container mx-auto px-4">
             <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 lg:flex-row">
-              {/* Left content */}
               <div className="flex-1 lg:pr-8">
                 <h2 className="mb-8 text-3xl font-bold leading-tight lg:text-4xl">
-                  <span className="text-primary">LPU Online</span> Advantages
+                  <span className="text-primary">Amity Online</span> Advantages
                 </h2>
                 <div className="space-y-6">
                   {advantages.map((point) => (
                     <div key={point.number} className="flex items-start gap-4">
                       <div className="flex-shrink-0">
-                        <span className="text-5xl font-bold leading-none text-primary">
-                          {point.number}
-                        </span>
+                        <span className="text-5xl font-bold leading-none text-primary">{point.number}</span>
                       </div>
                       <div className="pt-2">
-                        <h3 className="mb-1 text-lg font-bold text-foreground">
-                          {point.title}
-                        </h3>
-                        <p className="leading-relaxed text-muted-foreground">
-                          {point.desc}
-                        </p>
+                        <h3 className="mb-1 text-lg font-bold text-foreground">{point.title}</h3>
+                        <p className="leading-relaxed text-muted-foreground">{point.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              {/* Right image */}
               <div className="relative flex-1">
-                <img
-                  src={advantageImg}
-                  alt="LPU Online Advantages"
-                  loading="lazy"
-                  className="mx-auto h-auto w-full max-w-lg rounded-lg"
-                />
+                <img src={advantageImg} alt="Amity Online Advantages" loading="lazy" className="mx-auto h-auto w-full max-w-lg rounded-lg" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Sample Degree */}
         <section className="bg-background py-16">
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
-              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-                Sample {course.name} Degree
-              </h2>
+              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Sample {course.name} Degree</h2>
               <p className="mt-4 text-muted-foreground">
-                On successful completion of your {course.name}, you receive a UGC-entitled degree
-                from Lovely Professional University — treated at par with the on-campus program
-                and recognized internationally.
+                On successful completion of your {course.name}, you receive a UGC-entitled degree from Amity University — treated at par with the on-campus program and recognized internationally.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
                   <BadgeCheck className="h-4 w-4 text-primary" /> UGC Entitled
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
-                  <BadgeCheck className="h-4 w-4 text-primary" /> NAAC A++
+                  <BadgeCheck className="h-4 w-4 text-primary" /> NAAC A+
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground">
                   <BadgeCheck className="h-4 w-4 text-primary" /> WES Recognized
                 </span>
               </div>
             </div>
-            <img
-              src={lpuCertificate.url}
-              alt="LPU sample degree certificate"
-              loading="lazy"
-              className="mx-auto w-full max-w-md rounded-xl border border-border bg-white shadow-2xl"
-            />
+            <img src={amityCertificate.url} alt="Amity Online sample degree certificate" loading="lazy" className="mx-auto w-full max-w-md rounded-xl border border-border bg-white shadow-2xl" />
           </div>
         </section>
 
-        {/* Career Assistance */}
         <CareerAssistance />
 
-        {/* Placement Support */}
         <section className="bg-primary/10 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-                Experience 100% Placement Support
-              </h2>
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Experience 100% Placement Support</h2>
               <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-                Our dedicated placement team works to connect you with top employers across
-                industries for guaranteed career advancement.
+                Our dedicated placement team works to connect you with top employers across industries for guaranteed career advancement.
               </p>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
                 { v: "100%", l: "Placement Assistance" },
-                { v: "400+", l: "Hiring Partners" },
-                { v: "₹10L", l: "Highest Package" },
+                { v: "500+", l: "Hiring Partners" },
+                { v: "₹12L", l: "Highest Package" },
                 { v: "₹5L", l: "Average Package" },
               ].map((s) => (
-                <div
-                  key={s.l}
-                  className="rounded-2xl border border-border bg-card p-6 text-center shadow-sm"
-                >
+                <div key={s.l} className="rounded-2xl border border-border bg-card p-6 text-center shadow-sm">
                   <div className="text-3xl font-extrabold text-primary sm:text-4xl">{s.v}</div>
                   <div className="mt-1 text-sm text-muted-foreground">{s.l}</div>
                 </div>
@@ -492,12 +335,9 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Career Scope & Recruiters */}
         <section className="bg-background py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-              Career Scope & Top Recruiters
-            </h2>
+            <h2 className="text-3xl font-bold text-foreground sm:text-4xl">Career Scope & Top Recruiters</h2>
             <div className="mt-10 grid gap-10 lg:grid-cols-2">
               <div>
                 <h3 className="flex items-center gap-2 text-xl font-semibold text-primary">
@@ -505,10 +345,7 @@ function CoursePage() {
                 </h3>
                 <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {course.careers.map((c) => (
-                    <div
-                      key={c.role}
-                      className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card p-4"
-                    >
+                    <div key={c.role} className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card p-4">
                       <span className="font-medium text-foreground">{c.role}</span>
                       <span className="text-sm font-semibold text-primary">{c.salary}</span>
                     </div>
@@ -520,41 +357,23 @@ function CoursePage() {
                   <Users className="h-5 w-5" /> Top Recruiters
                 </h3>
                 <div className="mt-4 rounded-2xl border border-border bg-card p-4 sm:p-6">
-                  <img
-                    src={hiringPartners}
-                    alt="Top Hiring Partners"
-                    loading="lazy"
-                    className="mx-auto h-auto w-full max-w-lg object-contain"
-                  />
+                  <img src={hiringPartners} alt="Top Hiring Partners" loading="lazy" className="mx-auto h-auto w-full max-w-lg object-contain" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Related courses */}
         <section className="bg-secondary/40 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Explore Other LPU Online Programs
-            </h2>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Explore Other Amity Online Programs</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {allCourses
                 .filter((c) => c.slug !== course.slug)
                 .slice(0, 4)
                 .map((c) => (
-                  <Link
-                    key={c.slug}
-                    to="/courses/$slug"
-                    params={{ slug: c.slug }}
-                    className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]"
-                  >
-                    <img
-                      src={c.image}
-                      alt={c.name}
-                      loading="lazy"
-                      className="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
-                    />
+                  <Link key={c.slug} to="/courses/$slug" params={{ slug: c.slug }} className="group overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]">
+                    <img src={c.image} alt={c.name} loading="lazy" className="aspect-[4/3] w-full object-cover transition group-hover:scale-105" />
                     <div className="p-4">
                       <p className="font-semibold text-foreground">{c.name}</p>
                       <p className="mt-1 text-xs text-muted-foreground">{c.duration} · {c.fee}</p>
@@ -565,31 +384,20 @@ function CoursePage() {
           </div>
         </section>
 
-        {/* Final CTA */}
         <section className="relative overflow-hidden py-16">
           <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
           <div className="mx-auto max-w-4xl px-4 text-center text-primary-foreground sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              Ready to enroll in {course.name}?
-            </h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">Ready to enroll in {course.name}?</h2>
             <p className="mx-auto mt-3 max-w-xl opacity-95">
-              Talk to an LPU Online counselor for fees, EMI options, scholarships and the
-              step-by-step admission plan.
+              Talk to an Amity Online counselor for fees, no-cost EMI options, scholarships and the step-by-step admission plan.
             </p>
-            <button
-              type="button"
-              onClick={openModal}
-              className="mt-6 inline-flex items-center gap-2 rounded-md bg-background px-6 py-3 text-sm font-bold text-primary shadow-2xl transition hover:opacity-95"
-            >
+            <button type="button" onClick={openModal} className="mt-6 inline-flex items-center gap-2 rounded-md bg-background px-6 py-3 text-sm font-bold text-primary shadow-2xl transition hover:opacity-95">
               Get Free Counseling <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         </section>
 
-
-
-        {/* SEO FAQ + Popular Searches */}
-        <SeoFaq items={lpu.faqs} />
+        <SeoFaq items={amity.faqs} />
         <PopularSearches />
       </main>
       <SiteFooter />
@@ -598,7 +406,6 @@ function CoursePage() {
     </div>
   );
 }
-
 
 function FeeStat({ label, value, note }: { label: string; value: string; note: string }) {
   return (
@@ -609,6 +416,3 @@ function FeeStat({ label, value, note }: { label: string; value: string; note: s
     </div>
   );
 }
-
-// Silence unused lint if any
-void lpu;

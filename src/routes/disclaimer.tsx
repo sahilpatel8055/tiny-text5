@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
-import { lpu } from "@/lib/lpu";
+import { amity } from "@/lib/amity";
 
-const CANONICAL = "https://lpuonline.avedu.in/disclaimer";
+const CANONICAL = "/disclaimer";
 
 export const Route = createFileRoute("/disclaimer")({
   head: () => ({
     meta: [
-      { title: "Disclaimer — LPU Online · avedu" },
-      { name: "description", content: "Disclaimer for lpuonline.avedu.in — an independent education guidance platform operated under the avedu brand." },
-      { property: "og:title", content: "Disclaimer — LPU Online · avedu" },
+      { title: "Disclaimer — Amity Online · avedu" },
+      { name: "description", content: "Disclaimer for amityonline.avedu.in — an independent education guidance platform operated under the avedu brand." },
+      { property: "og:title", content: "Disclaimer — Amity Online · avedu" },
       { property: "og:description", content: "Independent education guidance platform disclaimer." },
       { property: "og:url", content: CANONICAL },
       { property: "og:type", content: "article" },
@@ -23,7 +23,7 @@ function Page() {
   return (
     <SeoPageLayout
       title="Disclaimer"
-      intro="This website lpuonline.avedu.in is operated under the brand name www.avedu.in. We are an independent education guidance platform and are not affiliated with Lovely Professional University (LPU) or any other university. LPU holds full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. We do not act as a university or an admission authority."
+      intro="This website amityonline.avedu.in is operated under the brand name www.avedu.in. We are an independent education guidance platform and are not affiliated with Amity University or any other university. Amity University holds full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. We do not act as a university or an admission authority."
       breadcrumb={[{ label: "Disclaimer" }]}
       sections={[
         {
@@ -38,7 +38,7 @@ function Page() {
           ],
         },
       ]}
-      faqs={lpu.faqs.slice(0, 4)}
+      faqs={amity.faqs.slice(0, 4)}
     />
   );
 }

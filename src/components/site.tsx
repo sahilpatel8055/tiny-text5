@@ -1,13 +1,13 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { lpu } from "@/lib/lpu";
+import { amity } from "@/lib/amity";
+import amityLogo from "@/assets/amity-logo.jpg.asset.json";
 import {
   Flame,
   X,
   Phone,
   MessageCircle,
   PhoneCall,
-  Download,
   ChevronRight,
   ChevronLeft,
   Briefcase,
@@ -15,8 +15,7 @@ import {
   Home,
 } from "lucide-react";
 
-// Logo lives in /public — reference directly.
-const LOGO_SRC = "/lpu-logo.png";
+export const LOGO_SRC = amityLogo.url;
 
 /* ---------------- Modal singleton ---------------- */
 
@@ -100,11 +99,11 @@ export function CounselingModal({
         >
           <div className="flex items-center gap-2.5">
             <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/95 p-1">
-              <img src={LOGO_SRC} alt="LPU Online" className="h-full w-full object-contain" />
+              <img src={LOGO_SRC} alt="Amity Online" className="h-full w-full object-contain" />
             </div>
             <div className="min-w-0">
               <p className="text-sm font-extrabold leading-tight">Admission Open · Batch 2026</p>
-              <p className="text-[11px] opacity-95">Free counseling with LPU Online advisor</p>
+              <p className="text-[11px] opacity-95">Free counseling with an Amity Online advisor</p>
             </div>
           </div>
         </div>
@@ -137,12 +136,12 @@ export function CounselingModal({
           <LabeledSelect label="Select Program">
             <option value="">Choose a program</option>
             <optgroup label="PG Programs">
-              {lpu.courses.pg.map((c) => (
+              {amity.courses.pg.map((c) => (
                 <option key={c.name}>{c.name}</option>
               ))}
             </optgroup>
             <optgroup label="UG Programs">
-              {lpu.courses.ug.map((c) => (
+              {amity.courses.ug.map((c) => (
                 <option key={c.name}>{c.name}</option>
               ))}
             </optgroup>
@@ -154,7 +153,7 @@ export function CounselingModal({
             Get Free Counseling Now
           </button>
           <p className="text-center text-[10px] text-muted-foreground">
-            By submitting you agree to be contacted about LPU Online programs.
+            By submitting you agree to be contacted about Amity Online programs.
           </p>
         </form>
       </div>
@@ -172,7 +171,7 @@ export function LeadFormCompact() {
     >
       <div className="flex items-center gap-3 border-b border-border pb-4">
         <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white p-1 ring-1 ring-border">
-          <img src={LOGO_SRC} alt="LPU Online" className="h-full w-full object-contain" />
+          <img src={LOGO_SRC} alt="Amity Online" className="h-full w-full object-contain" />
         </div>
         <div className="min-w-0">
           <p className="text-sm font-extrabold text-foreground">Admission Open</p>
@@ -185,7 +184,7 @@ export function LeadFormCompact() {
         <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
         <LabeledSelect label="Select Program">
           <option value="">Choose a program</option>
-          {[...lpu.courses.pg, ...lpu.courses.ug].map((c) => (
+          {[...amity.courses.pg, ...amity.courses.ug].map((c) => (
             <option key={c.name}>{c.name}</option>
           ))}
         </LabeledSelect>
@@ -209,7 +208,7 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
-            alt="LPU Online — Same Degree, Now Online"
+            alt="Amity Online — India's No. #1 Online University"
             className="h-10 w-auto sm:h-14"
           />
         </Link>
@@ -225,15 +224,15 @@ export function SiteHeader() {
   );
 }
 
-/* ---------------- Sticky Action Bar (desktop right rail + mobile bottom bar) ---------------- */
+/* ---------------- Sticky Action Bar ---------------- */
 
 const CALL_TEL = "tel:18000000000";
 const WA_LINK = "https://wa.me/919999999999";
+export { CALL_TEL };
 
 export function StickyActionBar() {
   return (
     <>
-      {/* Desktop / tablet: Call Now bottom-left; Callback + WhatsApp bottom-right */}
       <a
         href={CALL_TEL}
         className="fixed bottom-5 left-4 z-40 hidden items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 md:inline-flex"
@@ -258,7 +257,6 @@ export function StickyActionBar() {
         </a>
       </div>
 
-      {/* Mobile: bottom fixed action bar */}
       <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-border bg-card shadow-[0_-6px_18px_rgba(0,0,0,0.08)] md:hidden">
         <a
           href={CALL_TEL}
@@ -286,27 +284,23 @@ export function StickyActionBar() {
         </button>
       </div>
 
-      {/* Reserve space for mobile bar so page content isn't hidden */}
       <div aria-hidden className="h-14 md:hidden" />
     </>
   );
 }
 
-
 /* ---------------- Footer ---------------- */
 
 const footerLinks: { label: string; to: string }[] = [
-  { label: "LPU Online Admission", to: "/lpu-online-admission" },
-  { label: "Courses", to: "/lpu-online-courses" },
-  { label: "Fees", to: "/lpu-online-fees" },
-  { label: "Eligibility", to: "/lpu-online-eligibility" },
-  { label: "Placement", to: "/lpu-online-placement" },
-  { label: "Review", to: "/lpu-online-review" },
-  { label: "Scholarship", to: "/lpu-online-scholarship" },
-  { label: "Admission Last Date", to: "/lpu-online-admission-last-date" },
+  { label: "Amity Online Admission", to: "/amity-online-admission" },
+  { label: "Courses", to: "/amity-online-courses" },
+  { label: "Fees", to: "/amity-online-fees" },
+  { label: "Eligibility", to: "/amity-online-eligibility" },
+  { label: "Placement", to: "/amity-online-placement" },
+  { label: "Review", to: "/amity-online-review" },
+  { label: "Scholarship", to: "/amity-online-scholarship" },
+  { label: "Admission Last Date", to: "/amity-online-admission-last-date" },
 ];
-
-import aveduLogo from "@/assets/avedu-logo.jpg.asset.json";
 
 export function SiteFooter() {
   return (
@@ -315,12 +309,14 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-3">
-              <img src={LOGO_SRC} alt="LPU Online" className="h-10 w-auto" />
-              <img src={aveduLogo.url} alt="avedu" className="h-10 w-auto rounded" />
+              <img src={LOGO_SRC} alt="Amity Online" className="h-10 w-auto" />
+              <span className="rounded-md border border-border bg-secondary px-2 py-1 text-xs font-bold uppercase tracking-wider text-foreground">
+                avedu
+              </span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              UGC-entitled online degrees from Lovely Professional University — NAAC A++,
-              flexible learning, dedicated placement support.
+              UGC-entitled online degrees from Amity University Online — India's No. #1 online
+              university with flexible learning and dedicated career support.
             </p>
           </div>
           <div>
@@ -353,7 +349,7 @@ export function SiteFooter() {
         <div className="mt-8 rounded-lg border border-border bg-secondary/40 p-4 text-xs text-muted-foreground">
           <p className="font-semibold text-foreground">Disclaimer</p>
           <p className="mt-1">
-            This website lpuonline.avedu.in is operated under the brand name www.avedu.in. We are an independent education guidance platform and are not affiliated with Lovely Professional University (LPU) or any other university. LPU holds full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. We do not act as a university or an admission authority.
+            This website amityonline.avedu.in is operated under the brand name www.avedu.in. We are an independent education guidance platform and are not affiliated with Amity University or any other university. Amity University holds full rights to request change or removal of any non-relevant content. Images used are for illustrative purposes and do not directly represent the respective colleges or universities. We do not act as a university or an admission authority.
           </p>
         </div>
 
@@ -365,7 +361,7 @@ export function SiteFooter() {
           <Link to="/privacy-policy" className="text-sm font-semibold text-primary hover:underline">Privacy Policy</Link>
         </div>
         <p className="mt-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} LPU Online · avedu. All rights reserved.
+          © {new Date().getFullYear()} Amity Online · avedu. All rights reserved.
         </p>
       </div>
     </footer>
@@ -377,30 +373,12 @@ export function SiteFooter() {
 import placementImage from "@/assets/placement.jpg";
 
 const careerItems = [
-  {
-    title: "AI-Powered Resume Builder",
-    desc: "Instantly create professional resumes tailored to your profile using AI.",
-  },
-  {
-    title: "Mock Video Interview",
-    desc: "Practice real-time interview scenarios to boost your confidence.",
-  },
-  {
-    title: "Personality Test",
-    desc: "Understand your strengths and traits with an insightful personality assessment.",
-  },
-  {
-    title: "Aptitude Test Training",
-    desc: "Sharpen your reasoning and problem-solving skills with expert-guided prep.",
-  },
-  {
-    title: "Skills Enhancement",
-    desc: "Improve industry-relevant skills through targeted training programs.",
-  },
-  {
-    title: "Job Openings",
-    desc: "Explore curated job opportunities across top companies and sectors.",
-  },
+  { title: "AI-Powered Resume Builder", desc: "Instantly create professional resumes tailored to your profile using AI." },
+  { title: "Mock Video Interview", desc: "Practice real-time interview scenarios to boost your confidence." },
+  { title: "Personality Test", desc: "Understand your strengths and traits with an insightful personality assessment." },
+  { title: "Aptitude Test Training", desc: "Sharpen your reasoning and problem-solving skills with expert-guided prep." },
+  { title: "Skills Enhancement", desc: "Improve industry-relevant skills through targeted training programs." },
+  { title: "Job Openings", desc: "Explore curated job opportunities across top companies and sectors." },
 ];
 
 export function CareerAssistance() {
@@ -413,7 +391,7 @@ export function CareerAssistance() {
         <p className="mt-4 max-w-3xl text-base text-muted-foreground sm:text-lg">
           Get end-to-end career support including resume building, mock interviews, skill
           training, and job placement assistance to boost your employability after completing
-          your online UG or PG course.
+          your Amity Online UG or PG course.
         </p>
         <div className="mt-10 grid items-center gap-8 lg:grid-cols-2">
           <div className="flex justify-center">
@@ -446,7 +424,7 @@ export function CareerAssistance() {
   );
 }
 
-/* ---------------- Specializations (2 per row grid + arrow slider on mobile) ---------------- */
+/* ---------------- Specializations ---------------- */
 
 export function SpecializationsSection({
   title = "Specializations Offered",
@@ -455,7 +433,7 @@ export function SpecializationsSection({
   title?: string;
   specializations: string[];
 }) {
-  const pageSize = 4; // 2 columns × 2 rows
+  const pageSize = 4;
   const [page, setPage] = useState(0);
   const totalPages = Math.max(1, Math.ceil(specializations.length / pageSize));
   const current = specializations.slice(page * pageSize, page * pageSize + pageSize);
@@ -536,7 +514,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
     "@type": "ListItem",
     position: i + 1,
     name: c.label,
-    ...(c.to ? { item: `https://lpuonline.avedu.in${c.to}` } : {}),
+    ...(c.to ? { item: `https://amityonline.avedu.in${c.to}` } : {}),
   }));
   const jsonLd = {
     "@context": "https://schema.org",
@@ -544,10 +522,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
     itemListElement: ldItems,
   };
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className="border-b border-border/60 bg-secondary/40"
-    >
+    <nav aria-label="Breadcrumb" className="border-b border-border/60 bg-secondary/40">
       <div className="mx-auto flex max-w-7xl items-center gap-1.5 overflow-x-auto px-4 py-2.5 text-xs text-muted-foreground sm:px-6 sm:text-sm lg:px-8">
         <Link to="/" className="inline-flex items-center gap-1 hover:text-primary">
           <Home className="h-3.5 w-3.5" /> Home
@@ -573,7 +548,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
   );
 }
 
-/* ---------------- SEO FAQ block with JSON-LD ---------------- */
+/* ---------------- SEO FAQ block ---------------- */
 
 export function SeoFaq({ items }: { items: { q: string; a: string }[] }) {
   const jsonLd = {
@@ -614,25 +589,25 @@ export function SeoFaq({ items }: { items: { q: string; a: string }[] }) {
   );
 }
 
-/* ---------------- Popular Searches (SEO internal links) ---------------- */
+/* ---------------- Popular Searches ---------------- */
 
 const popularSearches: { label: string; to: string }[] = [
-  { label: "LPU Online Admission", to: "/lpu-online-admission" },
-  { label: "LPU Online MBA", to: "/courses/mba" },
-  { label: "LPU Online MCA", to: "/courses/mca" },
-  { label: "LPU Online BCA", to: "/courses/bca" },
-  { label: "LPU Online BBA", to: "/courses/bba" },
-  { label: "LPU Online BA", to: "/courses/ba" },
-  { label: "LPU Online B.Com", to: "/courses/bcom" },
-  { label: "LPU Online M.Com", to: "/courses/mcom" },
-  { label: "LPU Online MA", to: "/courses/ma" },
-  { label: "LPU Online Courses", to: "/lpu-online-courses" },
-  { label: "LPU Online Fees", to: "/lpu-online-fees" },
-  { label: "LPU Online Eligibility", to: "/lpu-online-eligibility" },
-  { label: "LPU Online Review", to: "/lpu-online-review" },
-  { label: "LPU Online Placement", to: "/lpu-online-placement" },
-  { label: "LPU Online Scholarship", to: "/lpu-online-scholarship" },
-  { label: "LPU Admission Last Date", to: "/lpu-online-admission-last-date" },
+  { label: "Amity Online Admission", to: "/amity-online-admission" },
+  { label: "Amity Online MBA", to: "/courses/mba" },
+  { label: "Amity Online MCA", to: "/courses/mca" },
+  { label: "Amity Online BCA", to: "/courses/bca" },
+  { label: "Amity Online BBA", to: "/courses/bba" },
+  { label: "Amity Online BA", to: "/courses/ba" },
+  { label: "Amity Online B.Com", to: "/courses/bcom" },
+  { label: "Amity Online M.Com", to: "/courses/mcom" },
+  { label: "Amity Online MA", to: "/courses/ma" },
+  { label: "Amity Online Courses", to: "/amity-online-courses" },
+  { label: "Amity Online Fees", to: "/amity-online-fees" },
+  { label: "Amity Online Eligibility", to: "/amity-online-eligibility" },
+  { label: "Amity Online Review", to: "/amity-online-review" },
+  { label: "Amity Online Placement", to: "/amity-online-placement" },
+  { label: "Amity Online Scholarship", to: "/amity-online-scholarship" },
+  { label: "Amity Admission Last Date", to: "/amity-online-admission-last-date" },
 ];
 
 export function PopularSearches() {
@@ -641,7 +616,7 @@ export function PopularSearches() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Popular Searches</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          High-intent LPU Online pages other students explored.
+          High-intent Amity Online pages other students explored.
         </p>
         <ul className="mt-6 flex flex-wrap gap-2">
           {popularSearches.map((p) => (
@@ -660,7 +635,7 @@ export function PopularSearches() {
   );
 }
 
-/* ---------------- SEO Page Layout (used by /lpu-online-* pages) ---------------- */
+/* ---------------- SEO Page Layout ---------------- */
 
 export type SeoSection = {
   heading: string;
@@ -674,7 +649,7 @@ export function SeoPageLayout({
   breadcrumb,
   sections,
   faqs,
-  cta = "Talk to an LPU Online Counselor",
+  cta = "Talk to an Amity Online Counselor",
 }: {
   title: string;
   intro: string;
@@ -689,7 +664,6 @@ export function SeoPageLayout({
       <SiteHeader />
       <Breadcrumb items={breadcrumb} />
       <main>
-        {/* Hero + lead form */}
         <section
           className="bg-background py-12 sm:py-16"
           style={{
@@ -700,8 +674,10 @@ export function SeoPageLayout({
           <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
             <div>
               <div className="mb-4 flex items-center gap-3">
-                <img src={LOGO_SRC} alt="LPU Online" className="h-12 w-auto" />
-                <img src={aveduLogo.url} alt="avedu" className="h-12 w-auto rounded" />
+                <img src={LOGO_SRC} alt="Amity Online" className="h-12 w-auto" />
+                <span className="rounded-md border border-border bg-secondary px-2 py-1 text-xs font-bold uppercase tracking-wider text-foreground">
+                  avedu
+                </span>
               </div>
               <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
                 {title}
@@ -729,12 +705,9 @@ export function SeoPageLayout({
           </div>
         </section>
 
-        {/* Sections with CTAs every 2 sections */}
         {sections.map((s, i) => (
           <div key={s.heading}>
-            <section
-              className={i % 2 === 0 ? "bg-background py-14" : "bg-secondary/40 py-14"}
-            >
+            <section className={i % 2 === 0 ? "bg-background py-14" : "bg-secondary/40 py-14"}>
               <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{s.heading}</h2>
                 {s.body && (
@@ -760,10 +733,7 @@ export function SeoPageLayout({
 
             {i > 0 && i % 2 === 1 && i < sections.length - 1 && (
               <section className="relative overflow-hidden py-10">
-                <div
-                  className="absolute inset-0 -z-10"
-                  style={{ background: "var(--gradient-brand)" }}
-                />
+                <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
                 <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-center text-primary-foreground sm:flex-row sm:text-left sm:px-6 lg:px-8">
                   <p className="text-lg font-bold sm:text-xl">{cta}</p>
                   <button

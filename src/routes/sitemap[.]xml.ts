@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { allCourses } from "@/lib/lpu";
+import { allCourses } from "@/lib/amity";
 
-const BASE_URL = "https://lpuonline.avedu.in";
+const BASE_URL = "https://amityonline.avedu.in";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -10,14 +10,14 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const staticPaths = [
           "/",
-          "/lpu-online-admission",
-          "/lpu-online-admission-last-date",
-          "/lpu-online-courses",
-          "/lpu-online-eligibility",
-          "/lpu-online-fees",
-          "/lpu-online-placement",
-          "/lpu-online-review",
-          "/lpu-online-scholarship",
+          "/amity-online-admission",
+          "/amity-online-admission-last-date",
+          "/amity-online-courses",
+          "/amity-online-eligibility",
+          "/amity-online-fees",
+          "/amity-online-placement",
+          "/amity-online-review",
+          "/amity-online-scholarship",
           "/fees",
           "/compare-universities",
           "/disclaimer",
