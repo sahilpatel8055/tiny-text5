@@ -237,12 +237,14 @@ function RankingsCarousel() {
 function CourseCard({ c }: { c: (typeof amity.courses.ug)[number] }) {
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-brand)]">
-      <div className="aspect-[4/3] overflow-hidden bg-secondary">
+      <Link to="/courses/$slug" params={{ slug: c.slug }} className="block aspect-[4/3] overflow-hidden bg-secondary">
         <img src={c.image} alt={c.name} loading="lazy" width={800} height={600} className="h-full w-full object-cover transition group-hover:scale-105" />
-      </div>
+      </Link>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between">
-          <h4 className="text-lg font-semibold text-foreground">{c.name}</h4>
+          <Link to="/courses/$slug" params={{ slug: c.slug }} className="text-lg font-semibold text-foreground hover:text-primary hover:underline">
+            {c.name}
+          </Link>
           <GraduationCap className="h-5 w-5 text-primary" />
         </div>
         <div className="mt-3 flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -271,6 +273,7 @@ function CourseCard({ c }: { c: (typeof amity.courses.ug)[number] }) {
     </div>
   );
 }
+
 
 function Courses() {
   const [tab, setTab] = useState<"ug" | "pg">("pg");
