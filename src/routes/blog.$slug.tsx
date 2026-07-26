@@ -9,11 +9,11 @@ import {
   PopularSearches,
   LeadFormCompact,
 } from "@/components/site";
-import { blogPosts, findBlogPost } from "@/lib/blog";
+import { blogPosts, findBlogPost, type BlogPost } from "@/lib/blog";
 import { Calendar, Clock, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { post: BlogPost } => {
     const post = findBlogPost(params.slug);
     if (!post) throw notFound();
     return { post };
