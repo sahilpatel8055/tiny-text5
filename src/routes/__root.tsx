@@ -73,6 +73,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+// TODO: replace with your real IDs once you have them.
+const GA4_MEASUREMENT_ID = "G-XXXXXXXXXX";
+const GOOGLE_SITE_VERIFICATION = "REPLACE_WITH_GOOGLE_VERIFICATION_TOKEN";
+const BING_SITE_VERIFICATION = "REPLACE_WITH_BING_VERIFICATION_TOKEN";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -84,27 +89,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Amity Online" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION },
+      { name: "msvalidate.01", content: BING_SITE_VERIFICATION },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: amityLogo.url, type: "image/jpeg" },
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://www.googletagmanager.com" },
     ],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Amity Online",
+          "@type": "EducationalOrganization",
+          name: "Amity Online (avedu counseling partner)",
           url: "https://amityonline.avedu.in/",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://amityonline.avedu.in/?q={search_term_string}",
-            "query-input": "required name=search_term_string",
+          logo: amityLogo.url,
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+91-733-838-7093",
+            contactType: "admissions",
+            areaServed: "IN",
+            availableLanguage: ["en", "hi"],
           },
         }),
+      },
+      {
+        async: true,
+        src: `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`,
+      },
+      {
+        children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GA4_MEASUREMENT_ID}');`,
       },
     ],
   }),

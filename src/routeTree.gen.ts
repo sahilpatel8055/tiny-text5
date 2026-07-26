@@ -16,6 +16,7 @@ import { Route as FeesRouteImport } from './routes/fees'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as CompareUniversitiesRouteImport } from './routes/compare-universities'
 import { Route as BestOnlineProgramRouteImport } from './routes/best-online-$program'
+import { Route as AmityVsCompetitorRouteImport } from './routes/amity-vs-$competitor'
 import { Route as AmityOnlineChar123programChar125InChar123cityChar125RouteImport } from './routes/amity-online-{$program}-in-{$city}'
 import { Route as AmityOnlineScholarshipRouteImport } from './routes/amity-online-scholarship'
 import { Route as AmityOnlineReviewRouteImport } from './routes/amity-online-review'
@@ -61,6 +62,11 @@ const CompareUniversitiesRoute = CompareUniversitiesRouteImport.update({
 const BestOnlineProgramRoute = BestOnlineProgramRouteImport.update({
   id: '/best-online-$program',
   path: '/best-online-$program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AmityVsCompetitorRoute = AmityVsCompetitorRouteImport.update({
+  id: '/amity-vs-$competitor',
+  path: '/amity-vs-$competitor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AmityOnlineChar123programChar125InChar123cityChar125Route =
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/amity-online-{$program}-in-{$city}': typeof AmityOnlineChar123programChar125InChar123cityChar125Route
+  '/amity-vs-$competitor': typeof AmityVsCompetitorRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -152,6 +159,7 @@ export interface FileRoutesByTo {
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/amity-online-{$program}-in-{$city}': typeof AmityOnlineChar123programChar125InChar123cityChar125Route
+  '/amity-vs-$competitor': typeof AmityVsCompetitorRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -173,6 +181,7 @@ export interface FileRoutesById {
   '/amity-online-review': typeof AmityOnlineReviewRoute
   '/amity-online-scholarship': typeof AmityOnlineScholarshipRoute
   '/amity-online-{$program}-in-{$city}': typeof AmityOnlineChar123programChar125InChar123cityChar125Route
+  '/amity-vs-$competitor': typeof AmityVsCompetitorRoute
   '/best-online-$program': typeof BestOnlineProgramRoute
   '/compare-universities': typeof CompareUniversitiesRoute
   '/disclaimer': typeof DisclaimerRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
     | '/amity-online-review'
     | '/amity-online-scholarship'
     | '/amity-online-{$program}-in-{$city}'
+    | '/amity-vs-$competitor'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
@@ -215,6 +225,7 @@ export interface FileRouteTypes {
     | '/amity-online-review'
     | '/amity-online-scholarship'
     | '/amity-online-{$program}-in-{$city}'
+    | '/amity-vs-$competitor'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/amity-online-review'
     | '/amity-online-scholarship'
     | '/amity-online-{$program}-in-{$city}'
+    | '/amity-vs-$competitor'
     | '/best-online-$program'
     | '/compare-universities'
     | '/disclaimer'
@@ -256,6 +268,7 @@ export interface RootRouteChildren {
   AmityOnlineReviewRoute: typeof AmityOnlineReviewRoute
   AmityOnlineScholarshipRoute: typeof AmityOnlineScholarshipRoute
   AmityOnlineChar123programChar125InChar123cityChar125Route: typeof AmityOnlineChar123programChar125InChar123cityChar125Route
+  AmityVsCompetitorRoute: typeof AmityVsCompetitorRoute
   BestOnlineProgramRoute: typeof BestOnlineProgramRoute
   CompareUniversitiesRoute: typeof CompareUniversitiesRoute
   DisclaimerRoute: typeof DisclaimerRoute
@@ -315,6 +328,13 @@ declare module '@tanstack/react-router' {
       path: '/best-online-$program'
       fullPath: '/best-online-$program'
       preLoaderRoute: typeof BestOnlineProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/amity-vs-$competitor': {
+      id: '/amity-vs-$competitor'
+      path: '/amity-vs-$competitor'
+      fullPath: '/amity-vs-$competitor'
+      preLoaderRoute: typeof AmityVsCompetitorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/amity-online-{$program}-in-{$city}': {
@@ -409,6 +429,7 @@ const rootRouteChildren: RootRouteChildren = {
   AmityOnlineScholarshipRoute: AmityOnlineScholarshipRoute,
   AmityOnlineChar123programChar125InChar123cityChar125Route:
     AmityOnlineChar123programChar125InChar123cityChar125Route,
+  AmityVsCompetitorRoute: AmityVsCompetitorRoute,
   BestOnlineProgramRoute: BestOnlineProgramRoute,
   CompareUniversitiesRoute: CompareUniversitiesRoute,
   DisclaimerRoute: DisclaimerRoute,
