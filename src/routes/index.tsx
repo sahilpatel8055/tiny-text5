@@ -266,7 +266,7 @@ function CourseCard({ c }: { c: (typeof amity.courses.ug)[number] }) {
             View Details <ChevronRight className="h-4 w-4" />
           </Link>
           <button type="button" onClick={openModal} className="ml-auto rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90">
-            Apply Now
+            Enquire Now
           </button>
         </div>
       </div>
