@@ -33,6 +33,44 @@ export function useModalTrigger() {
       modalCtx.current = null;
     };
   }, []);
+
+  // Auto-open counseling modal strategy:
+  //  - Home page ("/"): 20s timer
+  //  - Any other page: 10s timer
+  //  - Any page: after user scrolls 30% of page
+  // Fires at most once per browser session.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const KEY = "amity-modal-shown";
+    if (sessionStorage.getItem(KEY)) return;
+
+    let done = false;
+    const trigger = () => {
+      if (done) return;
+      done = true;
+      sessionStorage.setItem(KEY, "1");
+      setOpen(true);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timer);
+    };
+
+    const isHome = window.location.pathname === "/";
+    const delay = isHome ? 20000 : 10000;
+    const timer = setTimeout(trigger, delay);
+
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight);
+      if (scrolled >= 0.3) trigger();
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return { open, setOpen };
 }
 
