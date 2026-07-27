@@ -1,8 +1,6 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { amity } from "@/lib/amity";
-import amityLogo from "@/assets/amity-logo.jpg.asset.json";
-import aveduLogoAsset from "@/assets/avedu-logo.jpg.asset.json";
+import { amity, allCourses } from "@/lib/amity";
 import {
   Flame,
   X,
@@ -11,13 +9,15 @@ import {
   PhoneCall,
   ChevronRight,
   ChevronLeft,
+  ChevronDown,
   Briefcase,
   Star,
   Home,
+  Menu,
 } from "lucide-react";
 
-export const LOGO_SRC = amityLogo.url;
-export const AVEDU_LOGO_SRC = aveduLogoAsset.url;
+export const LOGO_SRC = "/amity-logo.jpg";
+export const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 /* ---------------- Modal singleton ---------------- */
 
