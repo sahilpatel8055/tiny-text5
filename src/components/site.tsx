@@ -878,7 +878,7 @@ export function SeoPageLayout({
                   onClick={openModal}
                   className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
                 >
-                  Apply Now <ChevronRight className="h-4 w-4" />
+                  Enquire Now <ChevronRight className="h-4 w-4" />
                 </button>
                 <a
                   href={CALL_TEL}
