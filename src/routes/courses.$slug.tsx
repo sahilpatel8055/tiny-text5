@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, amity, type Course } from "@/lib/amity";
-import amityCertificate from "@/assets/amity-sample-degree.jpeg.asset.json";
+const amityCertificate = { url: "/sample-degree.jpeg" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
 import { useState } from "react";
