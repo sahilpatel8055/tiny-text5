@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { amity } from "@/lib/amity";
-import amityCertificate from "@/assets/amity-sample-degree.jpeg.asset.json";
+const amityCertificate = { url: "/sample-degree.jpeg" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import logoNaac from "@/assets/logo/naac.jpeg";
 import logoNirf from "@/assets/logo/nirf.png";
