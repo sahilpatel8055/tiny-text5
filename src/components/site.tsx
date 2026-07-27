@@ -242,9 +242,21 @@ export function LeadFormCompact() {
 /* ---------------- Header ---------------- */
 
 export function SiteHeader() {
+  const [progOpen, setProgOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setProgOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:h-32 sm:px-6 lg:h-36 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-3 px-4 sm:h-32 sm:px-6 lg:h-36 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
@@ -252,14 +264,144 @@ export function SiteHeader() {
             className="h-20 w-auto sm:h-28 lg:h-32"
           />
         </Link>
-        <button
-          type="button"
-          onClick={openModal}
-          className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
-        >
-          Enroll Now
-        </button>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Programs dropdown - desktop */}
+          <div ref={ref} className="relative hidden sm:block">
+            <button
+              type="button"
+              onClick={() => setProgOpen((v) => !v)}
+              aria-haspopup="menu"
+              aria-expanded={progOpen}
+              className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary sm:text-base"
+            >
+              Programs <ChevronDown className={`h-4 w-4 transition ${progOpen ? "rotate-180" : ""}`} />
+            </button>
+            {progOpen && (
+              <div className="absolute right-0 top-full z-50 mt-2 w-[520px] rounded-xl border border-border bg-card p-4 shadow-2xl">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-primary">PG Programs</p>
+                    <ul className="space-y-1">
+                      {amity.courses.pg.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            to="/courses/$slug"
+                            params={{ slug: c.slug }}
+                            onClick={() => setProgOpen(false)}
+                            className="block rounded-md px-2 py-1.5 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                          >
+                            {c.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-primary">UG Programs</p>
+                    <ul className="space-y-1">
+                      {amity.courses.ug.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            to="/courses/$slug"
+                            params={{ slug: c.slug }}
+                            onClick={() => setProgOpen(false)}
+                            className="block rounded-md px-2 py-1.5 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                          >
+                            {c.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <Link
+                  to="/amity-online-courses"
+                  onClick={() => setProgOpen(false)}
+                  className="mt-3 block rounded-md border-t border-border pt-3 text-center text-sm font-semibold text-primary hover:underline"
+                >
+                  View all courses →
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Programs button - mobile */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="inline-flex items-center gap-1 rounded-md border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground sm:hidden"
+            aria-label="Open programs menu"
+          >
+            <Menu className="h-4 w-4" /> Programs
+          </button>
+
+          <button
+            type="button"
+            onClick={openModal}
+            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
+          >
+            Enquire Now
+          </button>
+        </div>
       </div>
+
+      {/* Mobile programs sheet */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[90] sm:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
+          <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm overflow-y-auto bg-card p-5 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-border pb-3">
+              <p className="text-lg font-bold text-foreground">Programs</p>
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="grid h-9 w-9 place-items-center rounded-full bg-accent"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">PG Programs</p>
+            <ul className="mt-2 space-y-1">
+              {amity.courses.pg.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    to="/courses/$slug"
+                    params={{ slug: c.slug }}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">UG Programs</p>
+            <ul className="mt-2 space-y-1">
+              {amity.courses.ug.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    to="/courses/$slug"
+                    params={{ slug: c.slug }}
+                    onClick={() => setMobileOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                  >
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/amity-online-courses"
+              onClick={() => setMobileOpen(false)}
+              className="mt-4 block rounded-md bg-primary py-2.5 text-center text-sm font-bold text-primary-foreground"
+            >
+              View all courses
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
