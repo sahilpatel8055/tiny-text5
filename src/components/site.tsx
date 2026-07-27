@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { amity, allCourses } from "@/lib/amity";
+import { amity } from "@/lib/amity";
 import {
   Flame,
   X,
