@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { amity } from "@/lib/amity";
-import amityCertificate from "@/assets/amity-sample-degree.jpeg.asset.json";
+const amityCertificate = { url: "/sample-degree.jpeg" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import logoNaac from "@/assets/logo/naac.jpeg";
 import logoNirf from "@/assets/logo/nirf.png";
@@ -266,7 +266,7 @@ function CourseCard({ c }: { c: (typeof amity.courses.ug)[number] }) {
             View Details <ChevronRight className="h-4 w-4" />
           </Link>
           <button type="button" onClick={openModal} className="ml-auto rounded-md bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90">
-            Apply Now
+            Enquire Now
           </button>
         </div>
       </div>

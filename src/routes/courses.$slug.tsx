@@ -1,6 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { findCourse, allCourses, amity, type Course } from "@/lib/amity";
-import amityCertificate from "@/assets/amity-sample-degree.jpeg.asset.json";
+const amityCertificate = { url: "/sample-degree.jpeg" };
 import hiringPartners from "@/assets/hiring-partners.png";
 import advantageImg from "@/assets/advantage.jpg";
 import { useState } from "react";
@@ -190,7 +190,7 @@ function CoursePage() {
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90">
-                  Apply Now <ChevronRight className="h-4 w-4" />
+                  Enquire Now <ChevronRight className="h-4 w-4" />
                 </button>
                 <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent">
                   <Download className="h-4 w-4" /> Download Brochure
