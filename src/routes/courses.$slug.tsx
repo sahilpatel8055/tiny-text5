@@ -190,7 +190,7 @@ function CoursePage() {
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90">
-                  Apply Now <ChevronRight className="h-4 w-4" />
+                  Enquire Now <ChevronRight className="h-4 w-4" />
                 </button>
                 <button type="button" onClick={openModal} className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-accent">
                   <Download className="h-4 w-4" /> Download Brochure
