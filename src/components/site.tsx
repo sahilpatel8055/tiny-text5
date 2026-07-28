@@ -16,7 +16,7 @@ import {
   Menu,
 } from "lucide-react";
 
-export const LOGO_SRC = "/amity-logo.jpg";
+export const LOGO_SRC = "/Amity_logo-removebg-preview.png";
 export const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 /* ---------------- Modal singleton ---------------- */
