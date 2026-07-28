@@ -93,16 +93,6 @@ function Hero() {
               View Programs
             </a>
           </div>
-          <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {amity.highlights.map((h) => (
-              <div key={h.label} className="rounded-xl border border-border bg-card p-3 sm:p-4">
-                <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  {h.label}
-                </dt>
-                <dd className="mt-1 text-sm font-semibold text-foreground">{h.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
         <div className="space-y-6">
           <HeroSlider />
@@ -476,8 +466,8 @@ function LeadForm() {
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         <div className="text-primary-foreground">
-          <h2 className="text-3xl font-extrabold text-yellow-300 drop-shadow-md sm:text-4xl">Talk to an Amity Online Counselor</h2>
-          <p className="mt-4 text-base opacity-95">
+          <h2 className="text-3xl font-extrabold text-orange-400 drop-shadow-md sm:text-4xl">Talk to an Amity Online Counselor</h2>
+          <p className="mt-4 text-base text-orange-100 opacity-95">
             Get free personalized program guidance, fee & no-cost EMI details, scholarship
             eligibility and a step-by-step admission plan.
           </p>

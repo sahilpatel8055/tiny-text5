@@ -924,7 +924,7 @@ export function SeoPageLayout({
               <section className="relative overflow-hidden py-10">
                 <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
                 <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-center !text-white sm:flex-row sm:text-left sm:px-6 lg:px-8">
-                  <p className="text-lg font-bold text-white sm:text-xl">{cta}</p>
+                  <p className="text-lg font-extrabold text-orange-400 drop-shadow-md sm:text-xl">{cta}</p>
                   <button
                     type="button"
                     onClick={openModal}
