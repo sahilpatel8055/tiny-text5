@@ -476,7 +476,7 @@ function LeadForm() {
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         <div className="text-primary-foreground">
-          <h2 className="text-3xl font-bold sm:text-4xl">Talk to an Amity Online Counselor</h2>
+          <h2 className="text-3xl font-extrabold text-yellow-300 drop-shadow-md sm:text-4xl">Talk to an Amity Online Counselor</h2>
           <p className="mt-4 text-base opacity-95">
             Get free personalized program guidance, fee & no-cost EMI details, scholarship
             eligibility and a step-by-step admission plan.
