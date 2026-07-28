@@ -11,7 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-const amityLogo = { url: "/amity-logo.jpg" };
+const amityLogo = { url: "/Amity_logo-removebg-preview.png" };
 
 function NotFoundComponent() {
   return (
