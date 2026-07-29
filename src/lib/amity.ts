@@ -111,7 +111,7 @@ export const amity = {
         rating: 4.7,
         reviews: 1420,
         tagline: "Bachelor of Business Administration — build a globally-relevant business foundation.",
-        feesBreakdown: { fullFees: "₹1,54,106", perSemester: "₹33,200", emi: "₹7,877/mo" },
+        feesBreakdown: { fullFees: "₹1,75,120", perSemester: "₹33,200", emi: "₹7,877/mo" },
         curriculum: ugYears([
           ["Principles of Management", "Business Communication", "Financial Accounting", "Microeconomics", "Business Mathematics"],
           ["Marketing Management", "Human Resource Management", "Business Law", "Cost Accounting", "Organizational Behavior"],
@@ -130,7 +130,7 @@ export const amity = {
         rating: 4.8,
         reviews: 1680,
         tagline: "Bachelor of Computer Applications — launch a career in modern tech.",
-        feesBreakdown: { fullFees: "₹1,35,520", perSemester: "₹29,200", emi: "₹6,927/mo" },
+        feesBreakdown: { fullFees: "₹1,54,000", perSemester: "₹29,200", emi: "₹6,927/mo" },
         curriculum: ugYears([
           ["Programming in C", "Digital Electronics", "Mathematics for Computing", "PC Software", "Communication Skills"],
           ["Data Structures", "Operating Systems", "DBMS", "Web Technologies", "Java Programming"],
@@ -149,7 +149,7 @@ export const amity = {
         rating: 4.6,
         reviews: 1080,
         tagline: "Bachelor of Commerce — master accounting, finance and taxation.",
-        feesBreakdown: { fullFees: "₹89,056", perSemester: "₹19,200", emi: "₹4,552/mo" },
+        feesBreakdown: { fullFees: "₹1,01,200", perSemester: "₹19,200", emi: "₹4,552/mo" },
         curriculum: ugYears([
           ["Financial Accounting", "Business Economics", "Business Law", "Business Statistics"],
           ["Corporate Accounting", "Cost Accounting", "Income Tax", "Auditing"],
@@ -168,7 +168,7 @@ export const amity = {
         rating: 4.5,
         reviews: 820,
         tagline: "Bachelor of Arts — a flexible, career-ready humanities degree.",
-        feesBreakdown: { fullFees: "₹89,056", perSemester: "₹19,200", emi: "₹4,552/mo" },
+        feesBreakdown: { fullFees: "₹1,01,200", perSemester: "₹19,200", emi: "₹4,552/mo" },
         curriculum: ugYears([
           ["English", "Political Science", "History", "Sociology"],
           ["Public Administration", "Economics", "Psychology", "Communication"],
@@ -198,7 +198,7 @@ export const amity = {
         rating: 4.8,
         reviews: 2380,
         tagline: "Master of Business Administration — accelerate into leadership roles.",
-        feesBreakdown: { fullFees: "₹1,90,440", perSemester: "₹56,300", emi: "₹8,906/mo" },
+        feesBreakdown: { fullFees: "₹2,07,000", perSemester: "₹56,300", emi: "₹8,906/mo" },
         curriculum: pgYears([
           ["Managerial Economics", "Financial Accounting", "Marketing Management", "Organizational Behaviour", "Business Statistics"],
           ["Strategic Management", "Operations Management", "Business Research", "Specialization Electives", "Capstone Project"],
@@ -216,7 +216,7 @@ export const amity = {
         rating: 4.8,
         reviews: 1460,
         tagline: "Master of Computer Applications — go deep on modern software engineering.",
-        feesBreakdown: { fullFees: "₹1,68,434", perSemester: "₹49,800", emi: "₹7,877/mo" },
+        feesBreakdown: { fullFees: "₹1,83,080", perSemester: "₹49,800", emi: "₹7,877/mo" },
         curriculum: pgYears([
           ["Advanced DBMS", "Object-Oriented Programming", "Data Structures & Algorithms", "Software Engineering"],
           ["AI & Machine Learning", "Cloud Computing", "Specialization Electives", "Major Project"],
@@ -234,7 +234,7 @@ export const amity = {
         rating: 4.6,
         reviews: 720,
         tagline: "Master of Commerce — specialize in finance, taxation and analytics.",
-        feesBreakdown: { fullFees: "₹1,26,960", perSemester: "₹37,500", emi: "₹5,938/mo" },
+        feesBreakdown: { fullFees: "₹1,38,000", perSemester: "₹37,500", emi: "₹5,938/mo" },
         curriculum: pgYears([
           ["Advanced Financial Accounting", "Managerial Economics", "Corporate Law", "Business Research"],
           ["Strategic Financial Management", "Taxation", "Electives", "Dissertation"],
@@ -252,7 +252,7 @@ export const amity = {
         rating: 4.5,
         reviews: 480,
         tagline: "Master of Arts — an advanced humanities degree, delivered 100% online.",
-        feesBreakdown: { fullFees: "₹1,26,960", perSemester: "₹37,500", emi: "₹5,938/mo" },
+        feesBreakdown: { fullFees: "₹1,38,000", perSemester: "₹37,500", emi: "₹5,938/mo" },
         curriculum: pgYears([
           ["Core Discipline I", "Core Discipline II", "Research Methods", "Communication"],
           ["Advanced Electives", "Contemporary Studies", "Dissertation"],

@@ -162,7 +162,9 @@ function CoursePage() {
   const activeSem = semesters[semIdx] ?? semesters[0];
 
   const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
-  const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
+  const markupPct = course.level === "pg" ? 0.08 : 0.12;
+  const strikethroughFee = fullNum ? formatINR(Math.round(fullNum * (1 + markupPct))) : course.feesBreakdown.fullFees;
+  const discountLabel = `${Math.round(markupPct * 100)}% off`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -262,10 +264,10 @@ function CoursePage() {
             <div className="mt-6 grid grid-cols-1 gap-6 rounded-2xl border border-primary/20 bg-accent p-6 md:grid-cols-3">
               <div>
                 <p className="text-sm font-semibold text-muted-foreground">Full Fee Payment</p>
-                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">{course.feesBreakdown.fullFees}</p>
-                <p className="text-3xl font-extrabold text-primary sm:text-4xl">{discountedFull}</p>
+                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">{strikethroughFee}</p>
+                <p className="text-3xl font-extrabold text-primary sm:text-4xl">{course.feesBreakdown.fullFees}</p>
                 <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                  <Sparkles className="h-3.5 w-3.5" /> 20% discount
+                  <Sparkles className="h-3.5 w-3.5" /> {discountLabel}
                 </p>
               </div>
               <FeeStat label="Each Semester Fee" value={course.feesBreakdown.perSemester} note="Inclusive of all taxes" />
@@ -401,13 +403,13 @@ function CoursePage() {
         </section>
 
         <section className="relative overflow-hidden py-16">
-          <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
-          <div className="mx-auto max-w-4xl px-4 text-center text-primary-foreground sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-orange-400 drop-shadow-md sm:text-4xl">Ready to enroll in {course.name}?</h2>
+          <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }} />
+          <div className="mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-extrabold text-orange-300 drop-shadow-md sm:text-4xl">Ready to enroll in {course.name}?</h2>
             <p className="mx-auto mt-3 max-w-xl text-orange-100 opacity-95">
               Talk to an Amity Online counselor for fees, no-cost EMI options, scholarships and the step-by-step admission plan.
             </p>
-            <button type="button" onClick={openModal} className="mt-6 inline-flex items-center gap-2 rounded-md bg-background px-6 py-3 text-sm font-bold text-primary shadow-2xl transition hover:opacity-95">
+            <button type="button" onClick={openModal} className="mt-6 inline-flex items-center gap-2 rounded-md bg-orange-400 px-6 py-3 text-sm font-bold text-slate-900 shadow-2xl transition hover:bg-orange-300">
               Get Free Counseling <ChevronRight className="h-4 w-4" />
             </button>
           </div>

@@ -256,12 +256,12 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-3 px-4 sm:h-32 sm:px-6 lg:h-36 lg:px-8">
+      <div className="mx-auto flex h-28 max-w-7xl items-center justify-between gap-3 px-4 sm:h-36 sm:px-6 lg:h-44 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
-            alt="Amity Online — India's No. #1 Online University"
-            className="h-20 w-auto sm:h-28 lg:h-32"
+            alt="Amity Online — Avedu"
+            className="h-24 w-auto sm:h-32 lg:h-40"
           />
         </Link>
 
@@ -362,40 +362,53 @@ export function SiteHeader() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">PG Programs</p>
-            <ul className="mt-2 space-y-1">
-              {amity.courses.pg.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/courses/$slug"
-                    params={{ slug: c.slug }}
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">UG Programs</p>
-            <ul className="mt-2 space-y-1">
-              {amity.courses.ug.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/courses/$slug"
-                    params={{ slug: c.slug }}
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+            <details className="mt-4 rounded-lg border border-border bg-background" open>
+              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                PG Programs
+                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+              </summary>
+              <ul className="space-y-1 p-2">
+                {amity.courses.pg.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      to="/courses/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+
+            <details className="mt-3 rounded-lg border border-border bg-background">
+              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                UG Programs
+                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+              </summary>
+              <ul className="space-y-1 p-2">
+                {amity.courses.ug.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      to="/courses/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+
             <Link
               to="/amity-online-courses"
               onClick={() => setMobileOpen(false)}
-              className="mt-4 block rounded-md bg-primary py-2.5 text-center text-sm font-bold text-primary-foreground"
+              className="mt-4 block rounded-md border border-primary py-2.5 text-center text-sm font-bold text-primary"
             >
               View all courses
             </Link>
@@ -922,13 +935,16 @@ export function SeoPageLayout({
 
             {i > 0 && i % 2 === 1 && i < sections.length - 1 && (
               <section className="relative overflow-hidden py-10">
-                <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
+                <div
+                  className="absolute inset-0 -z-10"
+                  style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}
+                />
                 <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-center !text-white sm:flex-row sm:text-left sm:px-6 lg:px-8">
-                  <p className="text-lg font-extrabold text-orange-400 drop-shadow-md sm:text-xl">{cta}</p>
+                  <p className="text-lg font-extrabold text-orange-300 drop-shadow-md sm:text-xl">{cta}</p>
                   <button
                     type="button"
                     onClick={openModal}
-                    className="inline-flex items-center gap-2 rounded-md bg-background px-5 py-2.5 text-sm font-bold text-primary shadow-lg"
+                    className="inline-flex items-center gap-2 rounded-md bg-orange-400 px-5 py-2.5 text-sm font-bold text-slate-900 shadow-lg hover:bg-orange-300"
                   >
                     Request Callback <ChevronRight className="h-4 w-4" />
                   </button>
