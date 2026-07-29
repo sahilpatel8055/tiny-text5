@@ -252,7 +252,7 @@ export const amity = {
         rating: 4.5,
         reviews: 480,
         tagline: "Master of Arts — an advanced humanities degree, delivered 100% online.",
-        feesBreakdown: { fullFees: "₹1,26,960", perSemester: "₹37,500", emi: "₹5,938/mo" },
+        feesBreakdown: { fullFees: "₹1,38,000", perSemester: "₹37,500", emi: "₹5,938/mo" },
         curriculum: pgYears([
           ["Core Discipline I", "Core Discipline II", "Research Methods", "Communication"],
           ["Advanced Electives", "Contemporary Studies", "Dissertation"],
