@@ -234,7 +234,7 @@ export const amity = {
         rating: 4.6,
         reviews: 720,
         tagline: "Master of Commerce — specialize in finance, taxation and analytics.",
-        feesBreakdown: { fullFees: "₹1,26,960", perSemester: "₹37,500", emi: "₹5,938/mo" },
+        feesBreakdown: { fullFees: "₹1,38,000", perSemester: "₹37,500", emi: "₹5,938/mo" },
         curriculum: pgYears([
           ["Advanced Financial Accounting", "Managerial Economics", "Corporate Law", "Business Research"],
           ["Strategic Financial Management", "Taxation", "Electives", "Dissertation"],
