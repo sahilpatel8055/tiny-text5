@@ -362,40 +362,53 @@ export function SiteHeader() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">PG Programs</p>
-            <ul className="mt-2 space-y-1">
-              {amity.courses.pg.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/courses/$slug"
-                    params={{ slug: c.slug }}
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs font-bold uppercase tracking-wide text-primary">UG Programs</p>
-            <ul className="mt-2 space-y-1">
-              {amity.courses.ug.map((c) => (
-                <li key={c.slug}>
-                  <Link
-                    to="/courses/$slug"
-                    params={{ slug: c.slug }}
-                    onClick={() => setMobileOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+            <details className="mt-4 rounded-lg border border-border bg-background" open>
+              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                PG Programs
+                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+              </summary>
+              <ul className="space-y-1 p-2">
+                {amity.courses.pg.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      to="/courses/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+
+            <details className="mt-3 rounded-lg border border-border bg-background">
+              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                UG Programs
+                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+              </summary>
+              <ul className="space-y-1 p-2">
+                {amity.courses.ug.map((c) => (
+                  <li key={c.slug}>
+                    <Link
+                      to="/courses/$slug"
+                      params={{ slug: c.slug }}
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
+                    >
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </details>
+
             <Link
               to="/amity-online-courses"
               onClick={() => setMobileOpen(false)}
-              className="mt-4 block rounded-md bg-primary py-2.5 text-center text-sm font-bold text-primary-foreground"
+              className="mt-4 block rounded-md border border-primary py-2.5 text-center text-sm font-bold text-primary"
             >
               View all courses
             </Link>
