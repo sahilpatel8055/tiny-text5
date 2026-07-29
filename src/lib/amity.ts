@@ -111,7 +111,7 @@ export const amity = {
         rating: 4.7,
         reviews: 1420,
         tagline: "Bachelor of Business Administration — build a globally-relevant business foundation.",
-        feesBreakdown: { fullFees: "₹1,54,106", perSemester: "₹33,200", emi: "₹7,877/mo" },
+        feesBreakdown: { fullFees: "₹1,75,120", perSemester: "₹33,200", emi: "₹7,877/mo" },
         curriculum: ugYears([
           ["Principles of Management", "Business Communication", "Financial Accounting", "Microeconomics", "Business Mathematics"],
           ["Marketing Management", "Human Resource Management", "Business Law", "Cost Accounting", "Organizational Behavior"],
