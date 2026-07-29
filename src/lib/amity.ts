@@ -130,7 +130,7 @@ export const amity = {
         rating: 4.8,
         reviews: 1680,
         tagline: "Bachelor of Computer Applications — launch a career in modern tech.",
-        feesBreakdown: { fullFees: "₹1,35,520", perSemester: "₹29,200", emi: "₹6,927/mo" },
+        feesBreakdown: { fullFees: "₹1,54,000", perSemester: "₹29,200", emi: "₹6,927/mo" },
         curriculum: ugYears([
           ["Programming in C", "Digital Electronics", "Mathematics for Computing", "PC Software", "Communication Skills"],
           ["Data Structures", "Operating Systems", "DBMS", "Web Technologies", "Java Programming"],
