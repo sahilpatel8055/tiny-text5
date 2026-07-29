@@ -264,10 +264,10 @@ function CoursePage() {
             <div className="mt-6 grid grid-cols-1 gap-6 rounded-2xl border border-primary/20 bg-accent p-6 md:grid-cols-3">
               <div>
                 <p className="text-sm font-semibold text-muted-foreground">Full Fee Payment</p>
-                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">{course.feesBreakdown.fullFees}</p>
-                <p className="text-3xl font-extrabold text-primary sm:text-4xl">{discountedFull}</p>
+                <p className="mt-2 text-lg font-semibold text-muted-foreground line-through">{strikethroughFee}</p>
+                <p className="text-3xl font-extrabold text-primary sm:text-4xl">{course.feesBreakdown.fullFees}</p>
                 <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                  <Sparkles className="h-3.5 w-3.5" /> 20% discount
+                  <Sparkles className="h-3.5 w-3.5" /> {discountLabel}
                 </p>
               </div>
               <FeeStat label="Each Semester Fee" value={course.feesBreakdown.perSemester} note="Inclusive of all taxes" />
