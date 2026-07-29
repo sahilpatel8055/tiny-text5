@@ -162,7 +162,9 @@ function CoursePage() {
   const activeSem = semesters[semIdx] ?? semesters[0];
 
   const fullNum = parseFeeNumber(course.feesBreakdown.fullFees);
-  const discountedFull = fullNum ? formatINR(Math.round(fullNum * 0.8)) : course.feesBreakdown.fullFees;
+  const markupPct = course.level === "pg" ? 0.08 : 0.12;
+  const strikethroughFee = fullNum ? formatINR(Math.round(fullNum * (1 + markupPct))) : course.feesBreakdown.fullFees;
+  const discountLabel = `${Math.round(markupPct * 100)}% off`;
 
   return (
     <div className="min-h-screen bg-background">
