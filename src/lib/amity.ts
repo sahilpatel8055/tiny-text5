@@ -198,7 +198,7 @@ export const amity = {
         rating: 4.8,
         reviews: 2380,
         tagline: "Master of Business Administration — accelerate into leadership roles.",
-        feesBreakdown: { fullFees: "₹1,90,440", perSemester: "₹56,300", emi: "₹8,906/mo" },
+        feesBreakdown: { fullFees: "₹2,07,000", perSemester: "₹56,300", emi: "₹8,906/mo" },
         curriculum: pgYears([
           ["Managerial Economics", "Financial Accounting", "Marketing Management", "Organizational Behaviour", "Business Statistics"],
           ["Strategic Management", "Operations Management", "Business Research", "Specialization Electives", "Capstone Project"],
