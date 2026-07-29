@@ -168,7 +168,7 @@ export const amity = {
         rating: 4.5,
         reviews: 820,
         tagline: "Bachelor of Arts — a flexible, career-ready humanities degree.",
-        feesBreakdown: { fullFees: "₹89,056", perSemester: "₹19,200", emi: "₹4,552/mo" },
+        feesBreakdown: { fullFees: "₹1,01,200", perSemester: "₹19,200", emi: "₹4,552/mo" },
         curriculum: ugYears([
           ["English", "Political Science", "History", "Sociology"],
           ["Public Administration", "Economics", "Psychology", "Communication"],
