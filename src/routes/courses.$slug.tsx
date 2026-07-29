@@ -403,13 +403,13 @@ function CoursePage() {
         </section>
 
         <section className="relative overflow-hidden py-16">
-          <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-brand)" }} />
-          <div className="mx-auto max-w-4xl px-4 text-center text-primary-foreground sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-extrabold text-orange-400 drop-shadow-md sm:text-4xl">Ready to enroll in {course.name}?</h2>
+          <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }} />
+          <div className="mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-extrabold text-orange-300 drop-shadow-md sm:text-4xl">Ready to enroll in {course.name}?</h2>
             <p className="mx-auto mt-3 max-w-xl text-orange-100 opacity-95">
               Talk to an Amity Online counselor for fees, no-cost EMI options, scholarships and the step-by-step admission plan.
             </p>
-            <button type="button" onClick={openModal} className="mt-6 inline-flex items-center gap-2 rounded-md bg-background px-6 py-3 text-sm font-bold text-primary shadow-2xl transition hover:opacity-95">
+            <button type="button" onClick={openModal} className="mt-6 inline-flex items-center gap-2 rounded-md bg-orange-400 px-6 py-3 text-sm font-bold text-slate-900 shadow-2xl transition hover:bg-orange-300">
               Get Free Counseling <ChevronRight className="h-4 w-4" />
             </button>
           </div>
