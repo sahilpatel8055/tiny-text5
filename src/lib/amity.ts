@@ -149,7 +149,7 @@ export const amity = {
         rating: 4.6,
         reviews: 1080,
         tagline: "Bachelor of Commerce — master accounting, finance and taxation.",
-        feesBreakdown: { fullFees: "₹89,056", perSemester: "₹19,200", emi: "₹4,552/mo" },
+        feesBreakdown: { fullFees: "₹1,01,200", perSemester: "₹19,200", emi: "₹4,552/mo" },
         curriculum: ugYears([
           ["Financial Accounting", "Business Economics", "Business Law", "Business Statistics"],
           ["Corporate Accounting", "Cost Accounting", "Income Tax", "Auditing"],
