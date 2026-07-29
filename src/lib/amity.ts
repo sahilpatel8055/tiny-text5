@@ -216,7 +216,7 @@ export const amity = {
         rating: 4.8,
         reviews: 1460,
         tagline: "Master of Computer Applications — go deep on modern software engineering.",
-        feesBreakdown: { fullFees: "₹1,68,434", perSemester: "₹49,800", emi: "₹7,877/mo" },
+        feesBreakdown: { fullFees: "₹1,83,080", perSemester: "₹49,800", emi: "₹7,877/mo" },
         curriculum: pgYears([
           ["Advanced DBMS", "Object-Oriented Programming", "Data Structures & Algorithms", "Software Engineering"],
           ["AI & Machine Learning", "Cloud Computing", "Specialization Electives", "Major Project"],
