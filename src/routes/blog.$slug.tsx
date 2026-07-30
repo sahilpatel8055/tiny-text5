@@ -98,7 +98,7 @@ function Page() {
                 <div className="mt-8 rounded-2xl border border-primary/30 bg-primary/5 p-6">
                   <h2 className="text-base font-bold text-primary">Key takeaways</h2>
                   <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
-                    {post.keyTakeaways.map((k) => (
+                    {post.keyTakeaways.map((k: string) => (
                       <li key={k}>{k}</li>
                     ))}
                   </ul>
@@ -117,7 +117,7 @@ function Page() {
                 <div className="mt-12">
                   <h2 className="text-xl font-bold text-foreground sm:text-2xl">Frequently asked questions</h2>
                   <div className="mt-4 space-y-4">
-                    {post.faqs.map((f) => (
+                    {post.faqs.map((f: { q: string; a: string }) => (
                       <div key={f.q} className="rounded-xl border border-border bg-card p-5">
                         <h3 className="text-base font-semibold text-foreground">{f.q}</h3>
                         <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
