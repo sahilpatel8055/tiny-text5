@@ -65,7 +65,24 @@ export const Route = createFileRoute("/blog/$slug")({
                 ],
               }),
             },
+            ...(p.faqs?.length
+              ? [
+                  {
+                    type: "application/ld+json",
+                    children: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "FAQPage",
+                      mainEntity: p.faqs.map((f: { q: string; a: string }) => ({
+                        "@type": "Question",
+                        name: f.q,
+                        acceptedAnswer: { "@type": "Answer", text: f.a },
+                      })),
+                    }),
+                  },
+                ]
+              : []),
           ]
+
         : [],
     };
   },
@@ -94,6 +111,16 @@ function Page() {
                 <span>By {post.author}</span>
               </div>
               <p className="mt-6 text-lg text-muted-foreground">{post.description}</p>
+              {post.keyTakeaways?.length ? (
+                <div className="mt-8 rounded-2xl border border-primary/30 bg-primary/5 p-6">
+                  <h2 className="text-base font-bold text-primary">Key takeaways</h2>
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                    {post.keyTakeaways.map((k: string) => (
+                      <li key={k}>{k}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <div className="mt-8 space-y-6">
                 {post.content.map((s: { heading: string; body: string }) => (
                   <div key={s.heading}>
@@ -102,6 +129,21 @@ function Page() {
                   </div>
                 ))}
               </div>
+
+              {post.faqs?.length ? (
+                <div className="mt-12">
+                  <h2 className="text-xl font-bold text-foreground sm:text-2xl">Frequently asked questions</h2>
+                  <div className="mt-4 space-y-4">
+                    {post.faqs.map((f: { q: string; a: string }) => (
+                      <div key={f.q} className="rounded-xl border border-border bg-card p-5">
+                        <h3 className="text-base font-semibold text-foreground">{f.q}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
 
               <div className="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-6">
                 <h3 className="text-lg font-bold text-primary">Ready to apply for Amity Online?</h3>
