@@ -363,75 +363,81 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile programs sheet */}
-      {mobileOpen && (
-        <div className="fixed inset-0 z-[90] sm:hidden">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
-          <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm overflow-y-auto bg-card p-5 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <p className="text-lg font-bold text-foreground">Programs</p>
-              <button
-                type="button"
-                onClick={() => setMobileOpen(false)}
-                className="grid h-9 w-9 place-items-center rounded-full bg-accent"
-                aria-label="Close"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
+      {/* Mobile programs sheet — portalled to body so the header's backdrop-blur doesn't clip it */}
+      {mounted && mobileOpen
+        ? createPortal(
+            <div className="fixed inset-0 z-[120] sm:hidden">
+              <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
+              <div className="absolute inset-y-0 right-0 flex h-full w-[88%] max-w-sm flex-col bg-card shadow-2xl">
+                <div className="flex shrink-0 items-center justify-between border-b border-border px-5 py-4">
+                  <p className="text-lg font-bold text-foreground">Programs</p>
+                  <button
+                    type="button"
+                    onClick={() => setMobileOpen(false)}
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-foreground"
+                    aria-label="Close"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
 
-            <details className="mt-4 rounded-lg border border-border bg-background" open>
-              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
-                PG Programs
-                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
-              </summary>
-              <ul className="space-y-1 p-2">
-                {amity.courses.pg.map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      to="/courses/$slug"
-                      params={{ slug: c.slug }}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                    >
-                      {c.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
+                <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-4">
+                  <details className="group rounded-lg border border-border bg-background" open>
+                    <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                      PG Programs
+                      <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+                    </summary>
+                    <ul className="space-y-1 p-2">
+                      {amity.courses.pg.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            to="/courses/$slug"
+                            params={{ slug: c.slug }}
+                            onClick={() => setMobileOpen(false)}
+                            className="block rounded-md px-3 py-2 text-sm font-medium text-foreground active:bg-primary active:text-primary-foreground"
+                          >
+                            {c.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
 
-            <details className="mt-3 rounded-lg border border-border bg-background">
-              <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
-                UG Programs
-                <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
-              </summary>
-              <ul className="space-y-1 p-2">
-                {amity.courses.ug.map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      to="/courses/$slug"
-                      params={{ slug: c.slug }}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-md px-3 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-primary"
-                    >
-                      {c.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </details>
+                  <details className="group mt-3 rounded-lg border border-border bg-background">
+                    <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-bold text-primary-foreground">
+                      UG Programs
+                      <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
+                    </summary>
+                    <ul className="space-y-1 p-2">
+                      {amity.courses.ug.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            to="/courses/$slug"
+                            params={{ slug: c.slug }}
+                            onClick={() => setMobileOpen(false)}
+                            className="block rounded-md px-3 py-2 text-sm font-medium text-foreground active:bg-primary active:text-primary-foreground"
+                          >
+                            {c.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
 
-            <Link
-              to="/amity-online-courses"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 block rounded-md border border-primary py-2.5 text-center text-sm font-bold text-primary"
-            >
-              View all courses
-            </Link>
-          </div>
-        </div>
-      )}
+                  <Link
+                    to="/amity-online-courses"
+                    onClick={() => setMobileOpen(false)}
+                    className="mt-4 block rounded-md border border-primary py-2.5 text-center text-sm font-bold text-primary"
+                  >
+                    View all courses
+                  </Link>
+                </div>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
+
     </header>
   );
 }
