@@ -124,9 +124,12 @@ function HeroSlider() {
             key={s.src}
             src={s.src}
             alt={s.alt}
+            width={1024}
+            height={768}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${i === idx ? "opacity-100" : "opacity-0"}`}
             loading={i === 0 ? "eager" : "lazy"}
           />
+
         ))}
         <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
           {heroSlides.map((_, i) => (
@@ -344,8 +347,11 @@ function DegreeShowcase() {
             src={amityCertificate.url}
             alt="Amity Online sample degree certificate"
             loading="lazy"
+            width={800}
+            height={1100}
             className="relative mx-auto w-full max-w-md rounded-xl border border-border bg-white shadow-2xl"
           />
+
         </div>
       </div>
     </section>
@@ -462,8 +468,8 @@ function Faqs() {
 
 function LeadForm() {
   return (
-    <section id="lead" className="relative overflow-hidden py-16">
-      <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }} />
+    <section id="lead" className="relative overflow-hidden py-16" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}>
+
       <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-8">
         <div className="text-primary-foreground">
           <h2 className="text-3xl font-extrabold text-orange-400 drop-shadow-md sm:text-4xl">Talk to an Amity Online Counselor</h2>
