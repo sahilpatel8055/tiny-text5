@@ -935,11 +935,10 @@ export function SeoPageLayout({
             </section>
 
             {i > 0 && i % 2 === 1 && i < sections.length - 1 && (
-              <section className="relative overflow-hidden py-10">
-                <div
-                  className="absolute inset-0 -z-10"
-                  style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}
-                />
+              <section
+                className="relative overflow-hidden py-10"
+                style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}
+              >
                 <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-center !text-white sm:flex-row sm:text-left sm:px-6 lg:px-8">
                   <p className="text-lg font-extrabold text-orange-300 drop-shadow-md sm:text-xl">{cta}</p>
                   <button
