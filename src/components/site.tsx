@@ -246,7 +246,19 @@ export function LeadFormCompact() {
 export function SiteHeader() {
   const [progOpen, setProgOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
@@ -255,6 +267,7 @@ export function SiteHeader() {
     document.addEventListener("mousedown", onDoc);
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
+
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
