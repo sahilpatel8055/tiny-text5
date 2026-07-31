@@ -414,8 +414,29 @@ function CoursePage() {
                   </Link>
                 ))}
             </div>
+
+            <div className="mt-10 rounded-2xl border border-border bg-card p-6">
+              <h3 className="text-lg font-bold text-foreground">Helpful resources for {course.name} applicants</h3>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {[
+                  { to: "/amity-online-fees", label: "Amity Online Fees" },
+                  { to: "/amity-online-eligibility", label: "Eligibility Criteria" },
+                  { to: "/amity-online-admission", label: "Admission Process" },
+                  { to: "/amity-online-placement", label: "Placement Support" },
+                  { to: "/amity-online-scholarship", label: "Scholarships" },
+                  { to: "/compare-universities", label: "Compare Universities" },
+                  { to: "/student-reviews", label: "Student Reviews" },
+                  { to: "/blog", label: "Blog & Guides" },
+                ].map((l) => (
+                  <Link key={l.to} to={l.to} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition hover:border-primary hover:bg-primary hover:text-primary-foreground">
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
+
 
         <section className="relative overflow-hidden py-16" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}>
 

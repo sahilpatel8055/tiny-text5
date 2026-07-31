@@ -124,9 +124,12 @@ function HeroSlider() {
             key={s.src}
             src={s.src}
             alt={s.alt}
+            width={1024}
+            height={768}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${i === idx ? "opacity-100" : "opacity-0"}`}
             loading={i === 0 ? "eager" : "lazy"}
           />
+
         ))}
         <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
           {heroSlides.map((_, i) => (
@@ -344,8 +347,11 @@ function DegreeShowcase() {
             src={amityCertificate.url}
             alt="Amity Online sample degree certificate"
             loading="lazy"
+            width={800}
+            height={1100}
             className="relative mx-auto w-full max-w-md rounded-xl border border-border bg-white shadow-2xl"
           />
+
         </div>
       </div>
     </section>

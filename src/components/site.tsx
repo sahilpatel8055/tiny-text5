@@ -604,8 +604,11 @@ export function CareerAssistance() {
               src={placementImage}
               alt="A working professional"
               loading="lazy"
+              width={640}
+              height={640}
               className="w-full max-w-sm rounded-2xl shadow-2xl"
             />
+
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {careerItems.map((it) => (
