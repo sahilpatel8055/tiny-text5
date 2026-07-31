@@ -417,8 +417,8 @@ function CoursePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden py-16">
-          <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }} />
+        <section className="relative overflow-hidden py-16" style={{ background: "linear-gradient(135deg, #0f1e3d 0%, #1B325D 45%, #7c2d12 100%)" }}>
+
           <div className="mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8">
             <h2 className="text-3xl font-extrabold text-orange-300 drop-shadow-md sm:text-4xl">Ready to enroll in {course.name}?</h2>
             <p className="mx-auto mt-3 max-w-xl text-orange-100 opacity-95">

@@ -256,13 +256,14 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-28 max-w-7xl items-center justify-between gap-3 px-4 sm:h-36 sm:px-6 lg:h-44 lg:px-8">
+      <div className="mx-auto flex h-32 max-w-7xl items-center justify-between gap-3 px-4 sm:h-40 sm:px-6 lg:h-48 lg:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_SRC}
             alt="Amity Online — Avedu"
-            className="h-24 w-auto sm:h-32 lg:h-40"
+            className="h-28 w-auto scale-110 sm:h-36 lg:h-44"
           />
+
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">
