@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 
 import { Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import { amity } from "@/lib/amity";
+import { submitLead } from "@/lib/leads.functions";
 import {
   Flame,
   X,
@@ -20,6 +23,44 @@ import {
 
 export const LOGO_SRC = "/Amity_logo-removebg-preview.png";
 export const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
+
+/* ---------------- Lead submission ---------------- */
+
+export function useLeadSubmit(source: string, onDone?: () => void) {
+  const [submitting, setSubmitting] = useState(false);
+  const send = useServerFn(submitLead);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting) return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setSubmitting(true);
+    try {
+      await send({
+        data: {
+          fullName: String(fd.get("fullName") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          course: String(fd.get("course") ?? "") || null,
+          leadSource: source,
+          pagePath: typeof window !== "undefined" ? window.location.pathname : null,
+        },
+      });
+      form.reset();
+      toast.success("Thank you! Our counselor will call you shortly.");
+      onDone?.();
+    } catch (error) {
+      console.error(error);
+      toast.error("Could not submit right now. Please call +91 733-838-7093.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return { submitting, handleSubmit };
+}
+
 
 /* ---------------- Modal singleton ---------------- */
 
