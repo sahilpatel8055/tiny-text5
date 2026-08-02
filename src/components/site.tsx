@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 
 import { Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { toast } from "sonner";
 import { amity } from "@/lib/amity";
+import { submitLead } from "@/lib/leads.functions";
 import {
   Flame,
   X,
@@ -20,6 +23,44 @@ import {
 
 export const LOGO_SRC = "/Amity_logo-removebg-preview.png";
 export const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
+
+/* ---------------- Lead submission ---------------- */
+
+export function useLeadSubmit(source: string, onDone?: () => void) {
+  const [submitting, setSubmitting] = useState(false);
+  const send = useServerFn(submitLead);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting) return;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    setSubmitting(true);
+    try {
+      await send({
+        data: {
+          fullName: String(fd.get("fullName") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          course: String(fd.get("course") ?? "") || null,
+          leadSource: source,
+          pagePath: typeof window !== "undefined" ? window.location.pathname : null,
+        },
+      });
+      form.reset();
+      toast.success("Thank you! Our counselor will call you shortly.");
+      onDone?.();
+    } catch (error) {
+      console.error(error);
+      toast.error("Could not submit right now. Please call +91 733-838-7093.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  return { submitting, handleSubmit };
+}
+
 
 /* ---------------- Modal singleton ---------------- */
 
@@ -124,7 +165,9 @@ export function CounselingModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const { submitting, handleSubmit } = useLeadSubmit("Counseling Popup", onClose);
   if (!open) return null;
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-4">
       <div className="relative w-full max-w-[380px] overflow-hidden rounded-2xl bg-card shadow-2xl">
@@ -165,17 +208,11 @@ export function CounselingModal({
           </div>
         </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            onClose();
-          }}
-          className="grid gap-2.5 p-4"
-        >
-          <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-          <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-          <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-          <LabeledSelect label="Select Program">
+        <form onSubmit={handleSubmit} className="grid gap-2.5 p-4">
+          <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
+          <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+          <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
+          <LabeledSelect name="course" label="Select Program" required>
             <option value="">Choose a program</option>
             <optgroup label="PG Programs">
               {amity.courses.pg.map((c) => (
@@ -190,14 +227,16 @@ export function CounselingModal({
           </LabeledSelect>
           <button
             type="submit"
-            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+            disabled={submitting}
+            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 disabled:opacity-60"
           >
-            Get Free Counseling Now
+            {submitting ? "Submitting…" : "Get Free Counseling Now"}
           </button>
           <p className="text-center text-[10px] text-muted-foreground">
             By submitting you agree to be contacted about Amity Online programs.
           </p>
         </form>
+
       </div>
     </div>
   );
@@ -206,6 +245,7 @@ export function CounselingModal({
 /* ---------------- Compact lead form ---------------- */
 
 export function LeadFormCompact() {
+  const { submitting, handleSubmit } = useLeadSubmit("Inline Form");
   return (
     <div
       id="lead-compact"
@@ -220,11 +260,11 @@ export function LeadFormCompact() {
           <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mt-4 grid gap-3">
-        <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-        <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-        <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-        <LabeledSelect label="Select Program">
+      <form onSubmit={handleSubmit} className="mt-4 grid gap-3">
+        <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
+        <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+        <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
+        <LabeledSelect name="course" label="Select Program" required>
           <option value="">Choose a program</option>
           {[...amity.courses.pg, ...amity.courses.ug].map((c) => (
             <option key={c.name}>{c.name}</option>
@@ -232,11 +272,13 @@ export function LeadFormCompact() {
         </LabeledSelect>
         <button
           type="submit"
-          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+          disabled={submitting}
+          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 disabled:opacity-60"
         >
-          Get Free Counseling
+          {submitting ? "Submitting…" : "Get Free Counseling"}
         </button>
       </form>
+
     </div>
   );
 }
