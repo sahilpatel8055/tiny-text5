@@ -208,17 +208,11 @@ export function CounselingModal({
           </div>
         </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            onClose();
-          }}
-          className="grid gap-2.5 p-4"
-        >
-          <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-          <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-          <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-          <LabeledSelect label="Select Program">
+        <form onSubmit={handleSubmit} className="grid gap-2.5 p-4">
+          <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
+          <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+          <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
+          <LabeledSelect name="course" label="Select Program" required>
             <option value="">Choose a program</option>
             <optgroup label="PG Programs">
               {amity.courses.pg.map((c) => (
@@ -233,14 +227,16 @@ export function CounselingModal({
           </LabeledSelect>
           <button
             type="submit"
-            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+            disabled={submitting}
+            className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 disabled:opacity-60"
           >
-            Get Free Counseling Now
+            {submitting ? "Submitting…" : "Get Free Counseling Now"}
           </button>
           <p className="text-center text-[10px] text-muted-foreground">
             By submitting you agree to be contacted about Amity Online programs.
           </p>
         </form>
+
       </div>
     </div>
   );
