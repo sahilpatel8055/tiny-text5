@@ -165,7 +165,9 @@ export function CounselingModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const { submitting, handleSubmit } = useLeadSubmit("Counseling Popup", onClose);
   if (!open) return null;
+
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-4">
       <div className="relative w-full max-w-[380px] overflow-hidden rounded-2xl bg-card shadow-2xl">
