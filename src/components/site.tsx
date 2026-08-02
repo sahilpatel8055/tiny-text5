@@ -245,6 +245,7 @@ export function CounselingModal({
 /* ---------------- Compact lead form ---------------- */
 
 export function LeadFormCompact() {
+  const { submitting, handleSubmit } = useLeadSubmit("Inline Form");
   return (
     <div
       id="lead-compact"
@@ -259,11 +260,11 @@ export function LeadFormCompact() {
           <p className="text-xs text-muted-foreground">Batch 2026 · 85% seats filled</p>
         </div>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mt-4 grid gap-3">
-        <LabeledInput label="Full Name" placeholder="e.g. Rahul Sharma" required />
-        <LabeledInput label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
-        <LabeledInput label="Email" type="email" placeholder="name@example.com" required />
-        <LabeledSelect label="Select Program">
+      <form onSubmit={handleSubmit} className="mt-4 grid gap-3">
+        <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
+        <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
+        <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
+        <LabeledSelect name="course" label="Select Program" required>
           <option value="">Choose a program</option>
           {[...amity.courses.pg, ...amity.courses.ug].map((c) => (
             <option key={c.name}>{c.name}</option>
@@ -271,11 +272,13 @@ export function LeadFormCompact() {
         </LabeledSelect>
         <button
           type="submit"
-          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90"
+          disabled={submitting}
+          className="mt-1 w-full rounded-md bg-primary px-6 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-brand)] transition hover:opacity-90 disabled:opacity-60"
         >
-          Get Free Counseling
+          {submitting ? "Submitting…" : "Get Free Counseling"}
         </button>
       </form>
+
     </div>
   );
 }
