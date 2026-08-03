@@ -1,5 +1,4 @@
 // Server-only helpers for lead capture: Google Sheets append + DB insert.
-import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
 const SPREADSHEET_ID = "1_kdzz44E2w4AV5Sr2i00XTpRtQ9jDlzdml8Bg5hOvnM";
 const SHEET_TAB = "Amity_ADS";
