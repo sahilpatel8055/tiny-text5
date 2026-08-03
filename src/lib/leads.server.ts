@@ -75,22 +75,34 @@ export async function saveLead(lead: LeadInput): Promise<{ ok: true }> {
     console.error("[leads] sheet append failed:", sheetError);
   }
 
-  const { error } = await supabaseAdmin.from("leads").insert({
-    full_name: lead.fullName,
-    email: lead.email,
-    phone: lead.phone,
-    course: lead.course ?? null,
-    lead_source: lead.leadSource ?? "Website",
-    page_path: lead.pagePath ?? null,
-    synced_to_sheet: sheetError === null,
-    sheet_error: sheetError,
-  });
+  // The database write must never break lead capture: if the admin client or
+  // its env vars are unavailable in the deployed environment, we still accept
+  // the lead as long as it reached the sheet.
+  let dbError: string | null = null;
+  try {
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("leads").insert({
+      full_name: lead.fullName,
+      email: lead.email,
+      phone: lead.phone,
+      course: lead.course ?? null,
+      lead_source: lead.leadSource ?? "Website",
+      page_path: lead.pagePath ?? null,
+      synced_to_sheet: sheetError === null,
+      sheet_error: sheetError,
+    });
+    // Duplicate (same phone + course) is not a user-facing failure.
+    if (error && error.code !== "23505") dbError = error.message;
+  } catch (error) {
+    dbError = error instanceof Error ? error.message : String(error);
+  }
 
-  // Duplicate (same phone + course) is not a user-facing failure.
-  if (error && error.code !== "23505") {
-    console.error("[leads] db insert failed:", error.message);
-    if (sheetError) throw new Error("Could not save your details. Please try again.");
+  if (dbError) console.error("[leads] db insert failed:", dbError);
+
+  if (dbError && sheetError) {
+    throw new Error("Could not save your details. Please try again.");
   }
 
   return { ok: true };
 }
+
