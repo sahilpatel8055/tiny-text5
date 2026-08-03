@@ -322,6 +322,15 @@ export function SiteHeader() {
               className="absolute inset-0 h-full w-full scale-[3.64] object-contain"
             />
           </span>
+          <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-433BH1TVTV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-433BH1TVTV');
+</script>
 
 
 
