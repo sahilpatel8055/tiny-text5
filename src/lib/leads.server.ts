@@ -35,7 +35,7 @@ export async function appendLeadToSheet(lead: LeadInput): Promise<void> {
 
   const range = `${SHEET_TAB}!A:F`;
   const url =
-    `${GATEWAY}/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}/values/${encodeURIComponent(range)}:append` +
+    `${GATEWAY}/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}:append` +
     `?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
 
   const res = await fetch(url, {
