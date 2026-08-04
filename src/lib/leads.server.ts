@@ -63,6 +63,11 @@ export async function appendLeadToSheet(lead: LeadInput): Promise<void> {
     const text = await res.text();
     throw new Error(`Sheets append failed (${res.status}): ${text.slice(0, 300)}`);
   }
+
+  const payload = (await res.json()) as { updates?: { updatedRows?: number } };
+  if (!payload.updates?.updatedRows) {
+    throw new Error("Sheets append returned without adding a row");
+  }
 }
 
 export async function saveLead(lead: LeadInput): Promise<{ ok: true }> {
