@@ -319,7 +319,7 @@ export function SiteHeader() {
             <img
               src={LOGO_SRC}
               alt="Amity Online — Avedu"
-              className="absolute inset-0 h-full w-full scale-[3.64] object-contain"
+              className="absolute inset-0 h-full w-full scale-[3.09] object-contain"
             />
           </span>
 
