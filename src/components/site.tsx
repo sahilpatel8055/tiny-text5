@@ -2,10 +2,8 @@ import { useEffect, useRef, useState, type ReactNode, type FormEvent } from "rea
 import { createPortal } from "react-dom";
 
 import { Link } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { amity } from "@/lib/amity";
-import { submitLead } from "@/lib/leads.functions";
 import {
   Flame,
   X,
@@ -26,26 +24,46 @@ export const AVEDU_LOGO_SRC = "/avedu-logo.jpg";
 
 /* ---------------- Lead submission ---------------- */
 
+const LEAD_WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxDCGIr01-dyHzlxSGfWjz9cH0oL9Gqv-V7jODdrgLkJbR3MJY7oH8W5C1XwALG_lF8nQ/exec";
+const LEAD_SHEET_NAME = "Amity_ADS";
+
 export function useLeadSubmit(source: string, onDone?: () => void) {
   const [submitting, setSubmitting] = useState(false);
-  const send = useServerFn(submitLead);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (submitting) return;
     const form = e.currentTarget;
     const fd = new FormData(form);
+    if (String(fd.get("website") ?? "")) return;
+
+    const fullName = String(fd.get("fullName") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").replace(/[^\d]/g, "");
+    const course = String(fd.get("course") ?? "").trim();
+    if (fullName.length < 2 || !email || phone.length < 10 || phone.length > 12 || !course) {
+      toast.error("Please enter valid details in all fields.");
+      return;
+    }
+
     setSubmitting(true);
     try {
-      await send({
-        data: {
-          fullName: String(fd.get("fullName") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          course: String(fd.get("course") ?? "") || null,
-          leadSource: source,
-          pagePath: typeof window !== "undefined" ? window.location.pathname : null,
-        },
+      const pageUrl = window.location.href;
+      await fetch(LEAD_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          sheetName: LEAD_SHEET_NAME,
+          fullName,
+          email,
+          phoneNumber: phone,
+          interestedCourse: course,
+          state: "",
+          timestamp: new Date().toISOString(),
+          leadSource: `${source} | ${pageUrl}`,
+        }),
       });
       form.reset();
       toast.success("Thank you! Our counselor will call you shortly.");
@@ -209,6 +227,7 @@ export function CounselingModal({
         </div>
 
         <form onSubmit={handleSubmit} className="grid gap-2.5 p-4">
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
           <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
           <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
           <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
@@ -261,6 +280,7 @@ export function LeadFormCompact() {
         </div>
       </div>
       <form onSubmit={handleSubmit} className="mt-4 grid gap-3">
+        <input name="website" type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <LabeledInput name="fullName" label="Full Name" placeholder="e.g. Rahul Sharma" required />
         <LabeledInput name="phone" label="Mobile Number" type="tel" placeholder="10-digit mobile" required />
         <LabeledInput name="email" label="Email" type="email" placeholder="name@example.com" required />
