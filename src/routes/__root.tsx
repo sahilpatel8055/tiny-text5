@@ -92,8 +92,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Amity Online - Avedu" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "google-site-verification", content: GOOGLE_SITE_VERIFICATION },
-      { name: "msvalidate.01", content: BING_SITE_VERIFICATION },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
