@@ -13,7 +13,7 @@ import {
 import { allCourses, amity, seoFeeYears } from "@/lib/amity";
 import { IndianRupee, ChevronRight } from "lucide-react";
 
-const canonicalFor = (year: string) => `/amity-online-fees-${year}`;
+const canonicalFor = (year: string) => `https://amityonline.avedu.in/amity-online-fees-${year}`;
 
 export const Route = createFileRoute("/amity-online-fees-$year")({
   loader: ({ params }) => {

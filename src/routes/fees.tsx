@@ -12,7 +12,7 @@ import {
 } from "@/components/site";
 import { allCourses, amity } from "@/lib/amity";
 
-const CANONICAL = "/fees";
+const CANONICAL = "https://amityonline.avedu.in/fees";
 
 export const Route = createFileRoute("/fees")({
   head: () => ({

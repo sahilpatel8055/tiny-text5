@@ -12,7 +12,7 @@ import {
 import { studentReviews, reviewAggregate } from "@/lib/blog";
 import { Star, MapPin } from "lucide-react";
 
-const CANONICAL = "/student-reviews";
+const CANONICAL = "https://amityonline.avedu.in/student-reviews";
 
 export const Route = createFileRoute("/student-reviews")({
   head: () => ({
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/student-reviews")({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
           name: "Amity Online",
-          url: `https://amityonline.avedu.in${CANONICAL}`,
+          url: CANONICAL,
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: reviewAggregate.ratingValue,

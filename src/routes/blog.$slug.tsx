@@ -20,7 +20,7 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ loaderData, params }) => {
     const p = loaderData?.post;
-    const canonical = `/blog/${params.slug}`;
+    const canonical = `https://amityonline.avedu.in/blog/${params.slug}`;
     return {
       meta: [
         { title: p ? `${p.title} — Amity Online Blog` : "Amity Online Blog" },
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/blog/$slug")({
                     url: "https://amityonline.avedu.in/favicon.ico",
                   },
                 },
-                mainEntityOfPage: `https://amityonline.avedu.in${canonical}`,
+                mainEntityOfPage: canonical,
               }),
             },
             {
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/blog/$slug")({
                 "@type": "BreadcrumbList",
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: "Blog", item: "https://amityonline.avedu.in/blog" },
-                  { "@type": "ListItem", position: 2, name: p.title, item: `https://amityonline.avedu.in${canonical}` },
+                  { "@type": "ListItem", position: 2, name: p.title, item: canonical },
                 ],
               }),
             },

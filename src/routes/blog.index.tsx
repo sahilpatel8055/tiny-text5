@@ -11,7 +11,7 @@ import {
 import { blogPosts } from "@/lib/blog";
 import { Calendar, Clock, ChevronRight } from "lucide-react";
 
-const CANONICAL = "/blog";
+const CANONICAL = "https://amityonline.avedu.in/blog";
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/blog/")({
           "@context": "https://schema.org",
           "@type": "Blog",
           name: "Amity Online Blog",
-          url: `https://amityonline.avedu.in${CANONICAL}`,
+          url: CANONICAL,
           blogPost: blogPosts.map((p) => ({
             "@type": "BlogPosting",
             headline: p.title,

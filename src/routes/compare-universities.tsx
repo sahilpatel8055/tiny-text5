@@ -13,7 +13,7 @@ import {
 import { amity } from "@/lib/amity";
 import { CheckCircle2 } from "lucide-react";
 
-const CANONICAL = "/compare-universities";
+const CANONICAL = "https://amityonline.avedu.in/compare-universities";
 
 const rows: { label: string; amity: string; manipal: string; lpu: string }[] = [
   { label: "NAAC Grade", amity: "A+", manipal: "A+", lpu: "A++" },

@@ -49,7 +49,7 @@ export const Route = createFileRoute("/courses/$slug")({
     const desc = c
       ? `${c.tagline} 100% online, UGC-entitled degree from Amity University. Fee ${c.fee}, EMI ${c.feesBreakdown.emi}. Apply for Amity Online admission 2026.`
       : "Explore online degree programs from Amity Online.";
-    const canonical = `/courses/${params.slug}`;
+    const canonical = `https://amityonline.avedu.in/courses/${params.slug}`;
     const courseSchema = c
       ? {
           "@context": "https://schema.org",
@@ -94,7 +94,7 @@ export const Route = createFileRoute("/courses/$slug")({
                 itemListElement: [
                   { "@type": "ListItem", position: 1, name: "Home", item: "https://amityonline.avedu.in/" },
                   { "@type": "ListItem", position: 2, name: "Courses", item: "https://amityonline.avedu.in/amity-online-courses" },
-                  { "@type": "ListItem", position: 3, name: c!.name, item: `https://amityonline.avedu.in${canonical}` },
+                  { "@type": "ListItem", position: 3, name: c!.name, item: canonical },
                 ],
               }),
             },
