@@ -78,8 +78,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 // TODO: replace with your real IDs once you have them.
 const GA4_MEASUREMENT_ID = "G-XXXXXXXXXX";
-const GOOGLE_SITE_VERIFICATION = "REPLACE_WITH_GOOGLE_VERIFICATION_TOKEN";
-const BING_SITE_VERIFICATION = "REPLACE_WITH_BING_VERIFICATION_TOKEN";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
