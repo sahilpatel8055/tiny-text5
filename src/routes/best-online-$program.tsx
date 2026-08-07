@@ -13,7 +13,7 @@ import {
 import { findCourse, amity } from "@/lib/amity";
 import { Star } from "lucide-react";
 
-const CANONICAL = (slug: string) => `/best-online-${slug}`;
+const CANONICAL = (slug: string) => `https://amityonline.avedu.in/best-online-${slug}`;
 
 const providers = [
   { name: "Amity Online", rating: 4.8, note: "India's No. #1 Online University, NAAC A+, UGC-entitled, dedicated career services", featured: true },

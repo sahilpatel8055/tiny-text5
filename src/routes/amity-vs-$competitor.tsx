@@ -13,7 +13,7 @@ import {
 import { findCompetitor, amity, competitors } from "@/lib/amity";
 import { CheckCircle2, X } from "lucide-react";
 
-const canonicalFor = (slug: string) => `/amity-vs-${slug}`;
+const canonicalFor = (slug: string) => `https://amityonline.avedu.in/amity-vs-${slug}`;
 
 export const Route = createFileRoute("/amity-vs-$competitor")({
   loader: ({ params }) => {

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { amity } from "@/lib/amity";
 
-const CANONICAL = "/disclaimer";
+const CANONICAL = "https://amityonline.avedu.in/disclaimer";
 
 export const Route = createFileRoute("/disclaimer")({
   head: () => ({

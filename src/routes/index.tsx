@@ -50,11 +50,11 @@ export const Route = createFileRoute("/")({
         content:
           "UGC-entitled online degrees from Amity University. Flexible learning, dedicated career services, no-cost EMI.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://amityonline.avedu.in/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://amityonline.avedu.in/" }],
   }),
   component: AmityPage,
 });

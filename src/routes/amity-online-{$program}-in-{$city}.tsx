@@ -14,7 +14,7 @@ import { findCourse, amity, seoCities, isValidCityCourseCombo } from "@/lib/amit
 import { BadgeCheck, ChevronRight, MapPin } from "lucide-react";
 
 const canonicalFor = (program: string, city: string) =>
-  `/amity-online-${program}-in-${city}`;
+  `https://amityonline.avedu.in/amity-online-${program}-in-${city}`;
 
 export const Route = createFileRoute("/amity-online-{$program}-in-{$city}")({
   loader: ({ params }) => {

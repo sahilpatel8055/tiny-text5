@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SeoPageLayout } from "@/components/site";
 import { amity } from "@/lib/amity";
 
-const CANONICAL = "/privacy-policy";
+const CANONICAL = "https://amityonline.avedu.in/privacy-policy";
 
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
